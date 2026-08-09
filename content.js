@@ -36,7 +36,7 @@ export const PROFILE = {
 
   // Put a photo at assets/img/portrait.jpg and write the path here.
   // Leave it as "" and the site shows your initials instead.
-  portrait: "",
+  portrait: "assets/img/portrait.jpg",
 
   about: {
     en: "I'm a doctoral student in the Graduate School of Engineering at Nagoya Institute of Technology, researching how humans perceive vibrotactile stimuli and how that perception can be used to design richer haptic experiences. My work sits at the intersection of psychophysics, human-computer interaction, and haptic engineering. Outside the lab I'm interested in sound, signal processing, and building tools that make research easier to run and share.",
@@ -52,8 +52,13 @@ export const PROFILE = {
     { en: "Signal Processing",       ja: "信号処理" }
   ],
 
-  // Put your CV PDF at assets/cv/ and write the path here. "" hides the button.
-  cvFile: "assets/cv/Takumi_Kuhara_CV.pdf",
+  // Your CV, per language. The download button follows whichever language the
+  // visitor has selected: EN gives the English PDF, 日本語 gives the Japanese one.
+  // Only have one? Write the same path in both. Set both to "" to hide the button.
+  cvFile: {
+    en: "assets/cv/takumi-kuhara-cv-en.pdf",
+    ja: "assets/cv/takumi-kuhara-cv-ja.pdf"
+  },
 
   researchmap: "https://researchmap.jp/Takumi-Kuhara"
 };

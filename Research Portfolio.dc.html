@@ -85,10 +85,10 @@ a:hover{color:var(--color-accent-600)}
         <p style="font-size:clamp(16px,1.8vw,20px);line-height:1.5;max-width:42ch;margin:0;opacity:0.78;text-wrap:pretty">{{ tagline }}</p>
       </div>
       <sc-if value="{{ hasPortrait }}" hint-placeholder-val="{{ false }}">
-        <img class="grayscale" src="{{ portrait }}" alt="{{ name }}" loading="lazy" style="aspect-ratio:1/1;max-width:280px;width:100%;object-fit:cover;border:2px solid var(--color-divider);justify-self:end;display:block">
+        <img class="grayscale" src="{{ portrait }}" alt="{{ name }}" loading="lazy" style="aspect-ratio:3/4;max-width:280px;width:100%;object-fit:cover;border:2px solid var(--color-divider);justify-self:end;display:block">
       </sc-if>
       <sc-if value="{{ noPortrait }}" hint-placeholder-val="{{ true }}">
-        <div class="grayscale" style="aspect-ratio:1/1;max-width:280px;width:100%;background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:center;justify-content:center;justify-self:end">
+        <div class="grayscale" style="aspect-ratio:3/4;max-width:280px;width:100%;background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:center;justify-content:center;justify-self:end">
           <span style="font-family:var(--font-heading);font-weight:800;font-size:64px;letter-spacing:-0.02em;opacity:0.35">{{ initials }}</span>
         </div>
       </sc-if>
@@ -215,7 +215,9 @@ a:hover{color:var(--color-accent-600)}
         <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-0.02em;margin:0">{{ ui.cv_heading }}</h2>
         <div style="grid-column:span 2;min-width:0">
           <p style="font-size:17px;line-height:1.7;margin:0 0 20px;max-width:48ch">{{ ui.cv_body }}</p>
-          <a href="{{ cvFile }}" download="download" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-accent);color:#fff;font-family:var(--font-heading);font-weight:800;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;padding:14px 22px;text-decoration:none;border:2px solid var(--color-accent)" style-hover="background:var(--color-accent-600);border-color:var(--color-accent-600)">{{ ui.cv_button }} ↓</a>
+          <sc-if value="{{ hasCV }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ cvFile }}" download="{{ cvName }}" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-accent);color:#fff;font-family:var(--font-heading);font-weight:800;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;padding:14px 22px;text-decoration:none;border:2px solid var(--color-accent)" style-hover="background:var(--color-accent-600);border-color:var(--color-accent-600)">{{ ui.cv_button }} ↓</a>
+          </sc-if>
         </div>
       </div>
     </section>
@@ -354,7 +356,12 @@ class Component extends DCLogic {
       tagline: t(d.PROFILE.tagline),
       about: t(d.PROFILE.about),
       interests: d.PROFILE.interests.map(t),
-      cvFile: d.PROFILE.cvFile,
+      // t() accepts a plain string or a { en, ja } pair, so a single-CV setup
+      // keeps working. cvName is the filename the browser saves it as —
+      // without it the download lands as a file literally called "download".
+      cvFile: t(d.PROFILE.cvFile),
+      hasCV: !!t(d.PROFILE.cvFile),
+      cvName: (t(d.PROFILE.cvFile) || '').split('/').pop(),
       researchmap: d.PROFILE.researchmap,
       projects: d.PROJECTS.map(p => ({
         href: '#project/' + p.id,

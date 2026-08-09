@@ -104,11 +104,31 @@ assets/diary/         ← diary photos       → diary.js    images[].src
 assets/pdf/           ← paper PDFs         → link fields
 ```
 
-Drop the file in, then write the path from the site root, e.g.
-`cvFile: "assets/cv/Takumi_Kuhara_CV.pdf"`.
+Drop the file in, then write the path from the site root.
 
 Filenames are case-sensitive on the web — `CV.pdf` and `cv.pdf` are different
-files. Use lower-case, no spaces, no Japanese characters.
+files. Use lower-case, no spaces, no Japanese characters. A name like
+`Takumi Kuhara CV (English).pdf` still works, but the browser has to escape it
+into `Takumi%20Kuhara%20CV%20(English).pdf`, which is ugly to share and easy to
+mistype.
+
+**Two CVs, English and Japanese.** `cvFile` takes the same `{ en, ja }` shape as
+the rest of the site, and the download button follows whichever language the
+visitor has selected:
+
+```js
+cvFile: {
+  en: "assets/cv/takumi-kuhara-cv-en.pdf",
+  ja: "assets/cv/takumi-kuhara-cv-ja.pdf"
+},
+```
+
+Only have one CV? Either write the same path in both, or just write a plain
+string — `cvFile: "assets/cv/my-cv.pdf"` — both work. Set it to `""` and the
+download button disappears instead of pointing at a missing file.
+
+The file saves under its own name, so keep the filename something you would be
+happy for a stranger to see in their downloads folder.
 
 **Photos in a diary entry.** Add an `images` list to the entry in `diary.js`:
 
