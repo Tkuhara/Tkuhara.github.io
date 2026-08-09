@@ -20,6 +20,37 @@
    3. Comma after every entry's closing }.
    4. Need a " inside your text? Write \" instead.
 
+   ----------------------------------------------------------------------------
+   PHOTOS (optional)
+
+   Put the image file in  assets/diary/  then add an `images` list to the entry.
+   Photos appear under the text, in order. Leave `images` out entirely if the
+   entry has none — older entries without it keep working.
+
+   {
+     date: "2026-08-09",
+     lang: "en",
+     title: "...",
+     body: [ "..." ],
+     images: [
+       {
+         src: "assets/diary/voice-coil.jpg",   // path from the site root
+         alt: "A voice coil actuator beside a fingertip",  // for screen readers
+         caption: "Smaller than a fingernail."             // optional, shown under
+       }
+     ]
+   },
+
+   `src` is required. `caption` is optional — leave it out and no caption shows.
+   `alt` is optional but please write it: it is what blind visitors hear, and
+   what shows if the file path is wrong. If you omit it the caption is used.
+
+   Filenames: stick to lowercase letters, numbers and hyphens — no spaces, no
+   Japanese characters. `wrist-rig.jpg` is safe, `手首の写真 2.jpg` will bite you.
+
+   NOTE: writing an <img> tag inside `body` does NOT work — body text is escaped,
+   so the tag shows up as literal text. Use `images`.
+
    The page shows the newest 10 entries and hides the rest behind a button,
    so the list can grow forever without slowing anything down.
    ========================================================================== */

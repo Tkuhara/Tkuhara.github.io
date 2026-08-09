@@ -61,6 +61,14 @@ a:hover{color:var(--color-accent-600)}
             <sc-for list="{{ e.body }}" as="para" hint-placeholder-count="2">
               <p style="margin:0 0 16px;font-size:17px;line-height:1.85;max-width:58ch;text-wrap:pretty">{{ para }}</p>
             </sc-for>
+            <sc-for list="{{ e.images }}" as="im" hint-placeholder-count="1">
+              <figure style="margin:24px 0 0;max-width:58ch">
+                <img src="{{ im.src }}" alt="{{ im.alt }}" loading="lazy" style="display:block;width:100%;height:auto;border:1px solid var(--color-divider)">
+                <sc-if value="{{ im.hasCaption }}" hint-placeholder-val="{{ false }}">
+                  <figcaption style="margin:10px 0 0;font-size:14px;line-height:1.6;opacity:0.6;text-wrap:pretty">{{ im.caption }}</figcaption>
+                </sc-if>
+              </figure>
+            </sc-for>
           </div>
         </article>
       </sc-for>
@@ -139,7 +147,14 @@ class Component extends DCLogic {
         dateLabel: this.fmt(e.date),
         langLabel: e.lang === 'ja' ? '日本語' : 'English',
         title: e.title,
-        body: e.body
+        body: e.body,
+        // Entries written before photos were supported have no `images` key.
+        images: (e.images || []).map(im => ({
+          src: im.src,
+          alt: im.alt || im.caption || '',
+          caption: im.caption || '',
+          hasCaption: !!im.caption
+        }))
       })),
       hasMore: rest > 0,
       moreLabel: 'Show ' + rest + ' older ' + (rest === 1 ? 'entry' : 'entries'),

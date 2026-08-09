@@ -62,9 +62,14 @@ a:hover{color:var(--color-accent-600)}
           </div>
         </div>
         <figure style="margin:0">
-          <div class="grayscale" style="aspect-ratio:4/3;background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:flex-end;padding:14px">
-            <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.5">{{ project.imageNote }}</span>
-          </div>
+          <sc-if value="{{ project.hasImage }}" hint-placeholder-val="{{ false }}">
+            <img class="grayscale" src="{{ project.image }}" alt="{{ project.title }}" loading="lazy" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid var(--color-divider)">
+          </sc-if>
+          <sc-if value="{{ project.noImage }}" hint-placeholder-val="{{ true }}">
+            <div class="grayscale" style="aspect-ratio:4/3;background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:flex-end;padding:14px">
+              <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.5">{{ project.imageNote }}</span>
+            </div>
+          </sc-if>
         </figure>
       </div>
     </article>
@@ -79,9 +84,14 @@ a:hover{color:var(--color-accent-600)}
         <h1 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(44px,8vw,104px);line-height:0.94;letter-spacing:-0.03em;margin:0 0 24px">{{ name }}</h1>
         <p style="font-size:clamp(16px,1.8vw,20px);line-height:1.5;max-width:42ch;margin:0;opacity:0.78;text-wrap:pretty">{{ tagline }}</p>
       </div>
-      <div class="grayscale" style="aspect-ratio:1/1;max-width:280px;width:100%;background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:center;justify-content:center;justify-self:end">
-        <span style="font-family:var(--font-heading);font-weight:800;font-size:64px;letter-spacing:-0.02em;opacity:0.35">{{ initials }}</span>
-      </div>
+      <sc-if value="{{ hasPortrait }}" hint-placeholder-val="{{ false }}">
+        <img class="grayscale" src="{{ portrait }}" alt="{{ name }}" loading="lazy" style="aspect-ratio:1/1;max-width:280px;width:100%;object-fit:cover;border:2px solid var(--color-divider);justify-self:end;display:block">
+      </sc-if>
+      <sc-if value="{{ noPortrait }}" hint-placeholder-val="{{ true }}">
+        <div class="grayscale" style="aspect-ratio:1/1;max-width:280px;width:100%;background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:center;justify-content:center;justify-self:end">
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:64px;letter-spacing:-0.02em;opacity:0.35">{{ initials }}</span>
+        </div>
+      </sc-if>
     </section>
 
     <section id="projects" style="border-top:2px solid var(--color-divider)">
@@ -93,7 +103,11 @@ a:hover{color:var(--color-accent-600)}
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2px;background:var(--color-divider);border:2px solid var(--color-divider)">
           <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
             <a href="{{ p.href }}" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:14px;background:var(--color-bg);padding:22px;text-decoration:none;color:var(--color-text)" style-hover="background:var(--color-surface)">
-              <div class="grayscale" style="aspect-ratio:16/10;background:var(--color-surface);border:1px solid var(--color-divider)"></div>
+              <div class="grayscale" style="aspect-ratio:16/10;background:var(--color-surface);border:1px solid var(--color-divider);overflow:hidden">
+                <sc-if value="{{ p.hasImage }}" hint-placeholder-val="{{ false }}">
+                  <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover">
+                </sc-if>
+              </div>
               <p style="margin:0;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--color-accent)">{{ p.kicker }} · {{ p.year }}</p>
               <h3 style="font-family:var(--font-heading);font-weight:800;font-size:24px;line-height:1.1;letter-spacing:-0.015em;margin:0">{{ p.title }}</h3>
               <p style="margin:0;font-size:14px;line-height:1.6;opacity:0.7;text-wrap:pretty">{{ p.blurb }}</p>
@@ -333,6 +347,9 @@ class Component extends DCLogic {
       showProject: !!current,
       name: t(d.PROFILE.name),
       initials: d.PROFILE.initials,
+      portrait: d.PROFILE.portrait || '',
+      hasPortrait: !!d.PROFILE.portrait,
+      noPortrait: !d.PROFILE.portrait,
       role: t(d.PROFILE.role),
       tagline: t(d.PROFILE.tagline),
       about: t(d.PROFILE.about),
@@ -342,14 +359,18 @@ class Component extends DCLogic {
       projects: d.PROJECTS.map(p => ({
         href: '#project/' + p.id,
         open: (e) => { e.preventDefault(); location.hash = 'project/' + p.id; this.setState({ view: p.id }); window.scrollTo(0, 0); },
-        kicker: t(p.kicker), year: p.year, title: t(p.title), blurb: t(p.blurb)
+        kicker: t(p.kicker), year: p.year, title: t(p.title), blurb: t(p.blurb),
+        image: p.image || '', hasImage: !!p.image
       })),
       project: current ? {
         kicker: t(current.kicker), year: current.year, title: t(current.title),
         blurb: t(current.blurb), body: current.body.map(t),
         links: this.linksOf(current.links || {}, ui),
+        image: current.image || '',
+        hasImage: !!current.image,
+        noImage: !current.image,
         imageNote: current.image ? '' : 'Figure'
-      } : { body: [], links: [] },
+      } : { body: [], links: [], noImage: true, imageNote: 'Figure' },
       publications: d.PUBLICATIONS.map(p => ({
         year: p.year, title: t(p.title), authors: t(p.authors), venue: t(p.venue), links: this.linksOf(p, ui)
       })),

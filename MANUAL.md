@@ -94,18 +94,55 @@ Two things to get right:
 
 ### Adding your CV and photos
 
-Create these folders next to `content.js` if they don't exist:
+The `assets/` folder already exists, with one subfolder per kind of file:
 
 ```
-assets/cv/       ← your CV PDF
-assets/pdf/      ← paper PDFs
-assets/img/      ← photos
+assets/cv/            ← your CV PDF        → content.js  PROFILE.cvFile
+assets/img/           ← your portrait      → content.js  PROFILE.portrait
+assets/img/projects/  ← project images     → content.js  PROJECTS[].image
+assets/diary/         ← diary photos       → diary.js    images[].src
+assets/pdf/           ← paper PDFs         → link fields
 ```
 
-Then point at them from `content.js`, e.g.
+Drop the file in, then write the path from the site root, e.g.
 `cvFile: "assets/cv/Takumi_Kuhara_CV.pdf"`.
+
 Filenames are case-sensitive on the web — `CV.pdf` and `cv.pdf` are different
-files. Use lower-case, no spaces, in all filenames.
+files. Use lower-case, no spaces, no Japanese characters.
+
+**Photos in a diary entry.** Add an `images` list to the entry in `diary.js`:
+
+```js
+{
+  date: "2026-08-09",
+  lang: "ja",
+  title: "手首の実験装置",
+  body: [ "今日は……" ],
+  images: [
+    {
+      src: "assets/diary/wrist-rig.jpg",
+      alt: "手首に取り付けた加振器",   // read aloud to blind visitors
+      caption: "3Dプリントのハンドル。"  // optional
+    }
+  ]
+}
+```
+
+Photos appear under the text, in order, at the width of the text column.
+Leave `images` out entirely if there are none. `caption` is optional; `src` is
+not.
+
+> Writing an `<img>` tag inside `body` does **not** work — body text is escaped
+> for safety, so the tag shows up as literal text on the page. Use `images`.
+
+**Portrait and project images.** Set `portrait: "assets/img/portrait.jpg"` in
+`content.js` and it replaces the "TK" initials box on the front page. Set
+`image:` on a project and it fills that project's card and its detail page;
+leave it `""` and you get the plain grey placeholder. Nothing else to change.
+
+Resize before uploading — about 1600 px wide, under ~1 MB. Nothing is
+compressed automatically, so a 6 MB phone photo is a 6 MB download for every
+visitor.
 
 ### Removing a section
 
