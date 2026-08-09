@@ -103,16 +103,20 @@ export const PROJECTS = [
     title: { en: "Embodied Spectating", ja: "なりきり体感観戦" },
     kicker: { en: "Remote sports viewing", ja: "遠隔スポーツ観戦" },
     blurb: {
-      en: "Third-person video plus motion imitation and multi-site tactile feedback, so a remote fencing spectator feels like the athlete.",
-      ja: "第三者視点映像に運動模倣と複数部位への触覚提示を組み合わせ、遠隔のフェンシング観戦者が選手になりきる体験をつくります。"
+      en: "Live sound from the fencing piste, turned into vibration under a remote spectator's feet and in the sword grip they hold — so watching becomes doing.",
+      ja: "試合会場の実音を振動に変換し、遠隔地の観戦者の足元と剣の柄型デバイスへ提示することで、「見る」観戦を「する」体験へ近づけます。"
     },
     body: [
-      { en: "Watching a sport on a screen is a flat experience. This project combined third-person footage with a spectator's own imitative movement and vibrotactile feedback delivered to several body sites, targeting the sense of being the athlete rather than watching one.",
-        ja: "画面越しのスポーツ観戦は体験として平板になりがちです。本プロジェクトでは第三者視点映像に、観戦者自身の運動模倣と複数部位への振動触覚提示を組み合わせ、「見る」のではなく「なる」感覚を目指しました。" },
-      { en: "Remote fencing was the use case: fast, legible, and built on a small number of decisive contacts that map cleanly onto tactile events.",
-        ja: "ユースケースは遠隔フェンシング観戦です。動きが速く読み取りやすく、少数の決定的な接触が触覚イベントへ素直に対応づけられるためです。" }
+      { en: "Watching a sport on a screen is a flat experience. This project targeted the sense of being the athlete rather than watching one, using remote fencing as the case: fast, legible, and built on a small number of decisive contacts that map cleanly onto tactile events.",
+        ja: "画面越しのスポーツ観戦は体験として平板になりがちです。本プロジェクトは「見る」のではなく「なる」感覚を目指しました。題材は遠隔フェンシング観戦です。動きが速く読み取りやすく、少数の決定的な接触が触覚イベントへ素直に対応づけられるためです。" },
+      { en: "Six microphones around the competition floor in Tokyo picked up the sounds the sport is actually made of — the impact of a lunge, the clash of blades. That audio was carried to spectators watching remotely and rendered as vibration through two channels: a platform beneath their feet, and a handheld device shaped like a sword grip.",
+        ja: "東京の競技会場に設置した6本のマイクが、この競技を成り立たせている音——踏み込みの衝撃、剣の打ち合い——を収録します。その音を遠隔地の観戦者へ伝送し、足元の台と剣の柄を模した手持ちデバイスという2系統で振動として提示しました。" },
+      { en: "Spectators also moved their own sword arm along with the athlete they were supporting, so the tactile signal arriving from the venue met their own motion. That pairing — felt contact plus self-generated movement — is what carries the experience across.",
+        ja: "同時に観戦者自身も、応援する選手に合わせて剣を持つ手を動かします。会場から届く触覚信号と自分の運動が重なること——感じる接触と、自ら生み出す動き——が体験の核になっています。" },
+      { en: "Run at the 74th All Japan Fencing Championship (6 November 2021, Roppongi Hills Arena), an event ICT-supported by the NTT West Group. The project's official name is 「なりきり体感観戦」; 'Embodied Spectating' is a working English rendering, as no official English title exists.",
+        ja: "NTT西日本グループがICTをサポートする第74回全日本フェンシング選手権大会（2021年11月6日、六本木ヒルズアリーナ）にて実施。公式名称は「なりきり体感観戦」で、英語表記の Embodied Spectating は便宜的な訳です（公式の英語名は存在しません）。" }
     ],
-    links: { doi: "", pdf: "", video: "" }
+    links: { doi: "", pdf: "", video: "", page: "https://furue.ilab.ntt.co.jp/book/202201/contents1.html" }
   },
   {
     id: "intensity-perception",
