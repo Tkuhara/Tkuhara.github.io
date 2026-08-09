@@ -98,7 +98,7 @@ export const PROJECTS = [
   },
   {
     id: "embodied-spectating",
-    year: "2021–2023",
+    year: "2021",
     image: "",
     title: { en: "Embodied Spectating", ja: "なりきり体感観戦" },
     kicker: { en: "Remote sports viewing", ja: "遠隔スポーツ観戦" },
