@@ -189,6 +189,23 @@ Repository → **Settings** → **Pages** (left sidebar) →
 under *Build and deployment*, Source = **Deploy from a branch**,
 Branch = **main**, folder = **/ (root)** → **Save**.
 
+> **The `.nojekyll` file — do not delete it.**
+>
+> GitHub Pages runs every site through Jekyll, and Jekyll **silently skips any
+> folder whose name starts with an underscore**. Your entire design system lives
+> in `_ds/`, so without this file the fonts, colours and layout 404 and the page
+> renders as raw `{{ name }}` placeholders with no styling. The repo looks
+> perfect; only the live site is broken — which is what makes it so confusing.
+>
+> An empty file named `.nojekyll` in the root turns Jekyll off. It is already
+> here. If you ever rebuild this repo from scratch, create it again:
+>
+> ```bash
+> touch .nojekyll
+> ```
+>
+> Symptom to recognise: `content.js` loads fine but `_ds/…/styles.css` gives 404.
+
 Wait 1–3 minutes. Your site is live at:
 
 ```
