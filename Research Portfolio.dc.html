@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-24d56970-4350-4bba-84dc-10d3a36ca835/styles.css">
+<style>
+:root[data-theme="dark"]{
+  --color-bg:#141312;--color-surface:#201e1d;--color-text:#f3f2f2;
+  --color-divider:color-mix(in srgb,#f3f2f2 40%,transparent);
+  --color-accent:#ff563c;
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-text)}
+a{color:var(--color-accent);text-underline-offset:3px}
+a:hover{color:var(--color-accent-600)}
+:root[data-theme="dark"] a:hover{color:var(--color-accent-400)}
+</style>
+</helmet>
+<div style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:20;background:var(--color-bg);border-bottom:2px solid var(--color-divider)">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <a href="#top" onClick="{{ goHome }}" style="font-family:var(--font-heading);font-weight:800;font-size:17px;letter-spacing:-0.01em;color:var(--color-text);text-decoration:none">{{ name }}</a>
+      <nav style="display:flex;gap:22px;flex-wrap:wrap;align-items:center;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;font-weight:600">
+        <a href="#projects" style="color:var(--color-text);text-decoration:none;opacity:0.62" style-hover="opacity:1;color:var(--color-accent)">{{ ui.nav_projects }}</a>
+        <a href="#about" style="color:var(--color-text);text-decoration:none;opacity:0.62" style-hover="opacity:1;color:var(--color-accent)">{{ ui.nav_about }}</a>
+        <a href="#research" style="color:var(--color-text);text-decoration:none;opacity:0.62" style-hover="opacity:1;color:var(--color-accent)">{{ ui.nav_research }}</a>
+        <a href="#cv" style="color:var(--color-text);text-decoration:none;opacity:0.62" style-hover="opacity:1;color:var(--color-accent)">{{ ui.nav_cv }}</a>
+        <a href="#contact" style="color:var(--color-text);text-decoration:none;opacity:0.62" style-hover="opacity:1;color:var(--color-accent)">{{ ui.nav_contact }}</a>
+        <a href="Diary.dc.html" style="color:var(--color-accent);text-decoration:none" style-hover="text-decoration:underline">{{ ui.nav_diary }} ↗</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button type="button" onClick="{{ toggleLang }}" style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.06em;background:transparent;border:2px solid var(--color-divider);border-radius:0;padding:6px 10px;cursor:pointer;color:var(--color-text)" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ langLabel }}</button>
+        <button type="button" onClick="{{ toggleTheme }}" style="font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.06em;background:transparent;border:2px solid var(--color-divider);border-radius:0;padding:6px 10px;cursor:pointer;color:var(--color-text)" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ themeLabel }}</button>
+      </div>
+    </div>
+  </header>
+
+  <sc-if value="{{ showProject }}" hint-placeholder-val="{{ false }}">
+    <article style="max-width:1180px;margin:0 auto;padding:40px 24px 100px">
+      <a href="#projects" onClick="{{ goHome }}" style="display:inline-block;font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-accent);text-decoration:none;margin-bottom:32px">← {{ ui.project_back }}</a>
+      <p style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;opacity:0.6;margin:0 0 10px">{{ project.kicker }} · {{ project.year }}</p>
+      <h1 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(36px,6vw,72px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 20px;max-width:16ch">{{ project.title }}</h1>
+      <p style="font-size:clamp(17px,2vw,22px);line-height:1.5;max-width:44ch;margin:0 0 32px;opacity:0.78">{{ project.blurb }}</p>
+      <hr style="height:2px;border:0;background:var(--color-divider);margin:0 0 32px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <sc-for list="{{ project.body }}" as="para" hint-placeholder-count="3">
+            <p style="font-size:16px;line-height:1.7;margin:0;text-wrap:pretty">{{ para }}</p>
+          </sc-for>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
+            <sc-for list="{{ project.links }}" as="l" hint-placeholder-count="0">
+              <a href="{{ l.href }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 16px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} ↗</a>
+            </sc-for>
+          </div>
+        </div>
+        <figure style="margin:0">
+          <div class="grayscale" style="aspect-ratio:4/3;background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:flex-end;padding:14px">
+            <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.5">{{ project.imageNote }}</span>
+          </div>
+        </figure>
+      </div>
+    </article>
+  </sc-if>
+
+  <sc-if value="{{ showHome }}" hint-placeholder-val="{{ true }}">
+  <main id="top">
+
+    <section style="max-width:1180px;margin:0 auto;padding:72px 24px 56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:end">
+      <div>
+        <p style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;opacity:0.6;margin:0 0 16px">{{ role }}</p>
+        <h1 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(44px,8vw,104px);line-height:0.94;letter-spacing:-0.03em;margin:0 0 24px">{{ name }}</h1>
+        <p style="font-size:clamp(16px,1.8vw,20px);line-height:1.5;max-width:42ch;margin:0;opacity:0.78;text-wrap:pretty">{{ tagline }}</p>
+      </div>
+      <div class="grayscale" style="aspect-ratio:1/1;max-width:280px;width:100%;background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:center;justify-content:center;justify-self:end">
+        <span style="font-family:var(--font-heading);font-weight:800;font-size:64px;letter-spacing:-0.02em;opacity:0.35">{{ initials }}</span>
+      </div>
+    </section>
+
+    <section id="projects" style="border-top:2px solid var(--color-divider)">
+      <div style="max-width:1180px;margin:0 auto;padding:56px 24px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:32px">
+          <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-0.02em;margin:0">{{ ui.projects_heading }}</h2>
+          <p style="margin:0;font-size:15px;opacity:0.65;max-width:38ch">{{ ui.projects_intro }}</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2px;background:var(--color-divider);border:2px solid var(--color-divider)">
+          <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+            <a href="{{ p.href }}" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:14px;background:var(--color-bg);padding:22px;text-decoration:none;color:var(--color-text)" style-hover="background:var(--color-surface)">
+              <div class="grayscale" style="aspect-ratio:16/10;background:var(--color-surface);border:1px solid var(--color-divider)"></div>
+              <p style="margin:0;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--color-accent)">{{ p.kicker }} · {{ p.year }}</p>
+              <h3 style="font-family:var(--font-heading);font-weight:800;font-size:24px;line-height:1.1;letter-spacing:-0.015em;margin:0">{{ p.title }}</h3>
+              <p style="margin:0;font-size:14px;line-height:1.6;opacity:0.7;text-wrap:pretty">{{ p.blurb }}</p>
+              <span style="margin-top:auto;padding-top:8px;font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">{{ ui.project_open }} →</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="border-top:2px solid var(--color-divider)">
+      <div style="max-width:1180px;margin:0 auto;padding:56px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:start">
+        <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-0.02em;margin:0">{{ ui.about_heading }}</h2>
+        <div style="grid-column:span 2;min-width:0">
+          <p style="font-size:17px;line-height:1.7;margin:0 0 24px;max-width:62ch;text-wrap:pretty">{{ about }}</p>
+          <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0">
+            <sc-for list="{{ interests }}" as="t" hint-placeholder-count="6">
+              <li style="border:2px solid var(--color-divider);padding:5px 12px;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;font-weight:600">{{ t }}</li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" style="border-top:2px solid var(--color-divider)">
+      <div style="max-width:1180px;margin:0 auto;padding:56px 24px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:8px">
+          <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-0.02em;margin:0">{{ ui.research_heading }}</h2>
+          <p style="margin:0;font-size:15px;opacity:0.65;max-width:38ch">{{ ui.research_intro }}</p>
+        </div>
+
+        <h3 style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:40px 0 0;padding-bottom:10px;border-bottom:2px solid var(--color-divider)">{{ ui.publications_heading }}</h3>
+        <ul style="list-style:none;padding:0;margin:0">
+          <sc-for list="{{ publications }}" as="p" hint-placeholder-count="3">
+            <li style="display:grid;grid-template-columns:72px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--color-divider);align-items:start">
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:15px;opacity:0.55">{{ p.year }}</span>
+              <div style="min-width:0">
+                <p style="margin:0 0 6px;font-size:17px;line-height:1.35;font-weight:600;text-wrap:pretty">{{ p.title }}</p>
+                <p style="margin:0;font-size:14px;line-height:1.5;opacity:0.62">{{ p.authors }}</p>
+                <p style="margin:2px 0 0;font-size:14px;line-height:1.5;opacity:0.62;font-style:italic">{{ p.venue }}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+                  <sc-for list="{{ p.links }}" as="l" hint-placeholder-count="0">
+                    <a href="{{ l.href }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} ↗</a>
+                  </sc-for>
+                </div>
+              </div>
+            </li>
+          </sc-for>
+        </ul>
+
+        <h3 style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:48px 0 0;padding-bottom:10px;border-bottom:2px solid var(--color-divider)">{{ ui.presentations_heading }} — {{ ui.intl_heading }}</h3>
+        <ul style="list-style:none;padding:0;margin:0">
+          <sc-for list="{{ presentationsIntl }}" as="p" hint-placeholder-count="5">
+            <li style="display:grid;grid-template-columns:72px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--color-divider);align-items:start">
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:15px;opacity:0.55">{{ p.year }}</span>
+              <div style="min-width:0">
+                <p style="margin:0 0 4px;font-size:16px;line-height:1.35;font-weight:600;text-wrap:pretty">{{ p.title }}</p>
+                <p style="margin:0;font-size:14px;line-height:1.5;opacity:0.62;font-style:italic">{{ p.venue }}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+                  <sc-for list="{{ p.links }}" as="l" hint-placeholder-count="0">
+                    <a href="{{ l.href }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} ↗</a>
+                  </sc-for>
+                </div>
+              </div>
+            </li>
+          </sc-for>
+        </ul>
+
+        <h3 style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:48px 0 0;padding-bottom:10px;border-bottom:2px solid var(--color-divider)">{{ ui.presentations_heading }} — {{ ui.domestic_heading }}</h3>
+        <ul style="list-style:none;padding:0;margin:0">
+          <sc-for list="{{ presentationsDomestic }}" as="p" hint-placeholder-count="10">
+            <li style="display:grid;grid-template-columns:72px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--color-divider);align-items:start">
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:15px;opacity:0.55">{{ p.year }}</span>
+              <div style="min-width:0">
+                <p style="margin:0 0 4px;font-size:16px;line-height:1.35;font-weight:600;text-wrap:pretty">{{ p.title }}</p>
+                <p style="margin:0;font-size:14px;line-height:1.5;opacity:0.62;font-style:italic">{{ p.venue }}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+                  <sc-for list="{{ p.links }}" as="l" hint-placeholder-count="0">
+                    <a href="{{ l.href }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} ↗</a>
+                  </sc-for>
+                </div>
+              </div>
+            </li>
+          </sc-for>
+        </ul>
+
+        <h3 style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:48px 0 0;padding-bottom:10px;border-bottom:2px solid var(--color-divider)">{{ ui.education_heading }}</h3>
+        <ul style="list-style:none;padding:0;margin:0">
+          <sc-for list="{{ education }}" as="e" hint-placeholder-count="3">
+            <li style="display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--color-divider);align-items:baseline">
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:15px;color:var(--color-accent)">{{ e.years }}</span>
+              <span style="font-size:16px;line-height:1.5">{{ e.text }}</span>
+            </li>
+          </sc-for>
+        </ul>
+
+        <p style="margin:28px 0 0">
+          <a href="{{ researchmap }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-accent);text-decoration:none" style-hover="text-decoration:underline">{{ ui.full_profile }} ↗</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="cv" style="border-top:2px solid var(--color-divider)">
+      <div style="max-width:1180px;margin:0 auto;padding:56px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:start">
+        <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-0.02em;margin:0">{{ ui.cv_heading }}</h2>
+        <div style="grid-column:span 2;min-width:0">
+          <p style="font-size:17px;line-height:1.7;margin:0 0 20px;max-width:48ch">{{ ui.cv_body }}</p>
+          <a href="{{ cvFile }}" download="download" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-accent);color:#fff;font-family:var(--font-heading);font-weight:800;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;padding:14px 22px;text-decoration:none;border:2px solid var(--color-accent)" style-hover="background:var(--color-accent-600);border-color:var(--color-accent-600)">{{ ui.cv_button }} ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="recommendations" style="border-top:2px solid var(--color-divider)">
+      <div style="max-width:1180px;margin:0 auto;padding:56px 24px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:24px">
+          <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-0.02em;margin:0">{{ ui.recs_heading }}</h2>
+          <p style="margin:0;font-size:15px;opacity:0.65;max-width:38ch">{{ ui.recs_intro }}</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;background:var(--color-divider);border:2px solid var(--color-divider)">
+          <sc-for list="{{ recommendations }}" as="r" hint-placeholder-count="2">
+            <div style="background:var(--color-bg);padding:22px;display:flex;flex-direction:column;gap:8px">
+              <h3 style="font-family:var(--font-heading);font-weight:800;font-size:20px;margin:0">{{ r.title }}</h3>
+              <p style="margin:0;font-size:14px;line-height:1.6;opacity:0.7">{{ r.desc }}</p>
+              <sc-if value="{{ r.url }}" hint-placeholder-val="{{ true }}">
+                <a href="{{ r.url }}" target="_blank" rel="noopener" style="margin-top:6px;font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent);text-decoration:none" style-hover="text-decoration:underline">Visit ↗</a>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--color-accent);color:#fff">
+      <div style="max-width:1180px;margin:0 auto;padding:64px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:end">
+        <div>
+          <p style="margin:0 0 12px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;opacity:0.8">{{ ui.diary_cta_kicker }}</p>
+          <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(40px,7vw,84px);line-height:0.95;letter-spacing:-0.03em;margin:0 0 16px">{{ ui.diary_cta_title }}</h2>
+          <p style="margin:0;font-size:18px;line-height:1.5;max-width:36ch;opacity:0.92">{{ ui.diary_cta_body }}</p>
+        </div>
+        <a href="Diary.dc.html" style="justify-self:start;display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--color-accent);font-family:var(--font-heading);font-weight:800;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;padding:16px 26px;text-decoration:none;border:2px solid #fff" style-hover="background:transparent;color:#fff">{{ ui.diary_cta_button }} →</a>
+      </div>
+    </section>
+
+    <section id="contact" style="border-top:2px solid var(--color-divider)">
+      <div style="max-width:1180px;margin:0 auto;padding:56px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:start">
+        <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-0.02em;margin:0">{{ ui.contact_heading }}</h2>
+        <div style="grid-column:span 2;min-width:0">
+          <p style="font-size:17px;line-height:1.7;margin:0 0 20px;max-width:48ch">{{ ui.contact_intro }}</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px">
+            <sc-for list="{{ socials }}" as="s" hint-placeholder-count="3">
+              <li style="display:flex">
+                <a href="{{ s.href }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none;font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.05em;text-transform:uppercase" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ s.label }} ↗</a>
+              </li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <footer style="border-top:2px solid var(--color-divider)">
+    <div style="max-width:1180px;margin:0 auto;padding:28px 24px 56px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;opacity:0.6">
+      <span>{{ ui.footer }}</span>
+      <span>{{ year }}</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'en', theme: 'light', data: null, view: null };
+
+  componentDidMount() {
+    const browserJa = (navigator.language || '').toLowerCase().startsWith('ja');
+    const lang = localStorage.getItem('site-lang') || (browserJa ? 'ja' : 'en');
+    const theme = localStorage.getItem('site-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.lang = lang;
+    this.setState({ lang, theme, view: this.viewFromHash() });
+    this._onHash = () => this.setState({ view: this.viewFromHash() });
+    window.addEventListener('hashchange', this._onHash);
+    import('./content.js').then(m => this.setState({ data: m }));
+  }
+
+  componentWillUnmount() { window.removeEventListener('hashchange', this._onHash); }
+
+  viewFromHash() {
+    const h = (location.hash || '').replace('#', '');
+    return h.startsWith('project/') ? h.slice(8) : null;
+  }
+
+  t(v) {
+    if (v == null) return '';
+    if (typeof v === 'string') return v;
+    return v[this.state.lang] || v.en || v.ja || '';
+  }
+
+  linksOf(o, ui) {
+    const out = [];
+    if (o.doi) out.push({ label: ui.link_doi, href: o.doi });
+    if (o.pdf) out.push({ label: ui.link_pdf, href: o.pdf });
+    if (o.video) out.push({ label: ui.link_video, href: o.video });
+    if (o.page) out.push({ label: 'Page', href: o.page });
+    if (o.code) out.push({ label: 'Code', href: o.code });
+    return out;
+  }
+
+  renderVals() {
+    const d = this.state.data;
+    const t = v => this.t(v);
+    const ui = d ? d.UI[this.state.lang] : {};
+    const base = {
+      ui,
+      langLabel: this.state.lang === 'en' ? '日本語' : 'EN',
+      themeLabel: this.state.theme === 'dark' ? 'LIGHT' : 'DARK',
+      year: String(new Date().getFullYear()),
+      toggleLang: () => {
+        const next = this.state.lang === 'en' ? 'ja' : 'en';
+        localStorage.setItem('site-lang', next);
+        document.documentElement.lang = next;
+        this.setState({ lang: next });
+      },
+      toggleTheme: () => {
+        const next = this.state.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('site-theme', next);
+        document.documentElement.setAttribute('data-theme', next);
+        this.setState({ theme: next });
+      },
+      goHome: (e) => { e.preventDefault(); history.replaceState(null, '', location.pathname); this.setState({ view: null }); }
+    };
+    if (!d) return Object.assign(base, { showHome: true, showProject: false });
+
+    const current = d.PROJECTS.find(p => p.id === this.state.view);
+    return Object.assign(base, {
+      showHome: !current,
+      showProject: !!current,
+      name: t(d.PROFILE.name),
+      initials: d.PROFILE.initials,
+      role: t(d.PROFILE.role),
+      tagline: t(d.PROFILE.tagline),
+      about: t(d.PROFILE.about),
+      interests: d.PROFILE.interests.map(t),
+      cvFile: d.PROFILE.cvFile,
+      researchmap: d.PROFILE.researchmap,
+      projects: d.PROJECTS.map(p => ({
+        href: '#project/' + p.id,
+        open: (e) => { e.preventDefault(); location.hash = 'project/' + p.id; this.setState({ view: p.id }); window.scrollTo(0, 0); },
+        kicker: t(p.kicker), year: p.year, title: t(p.title), blurb: t(p.blurb)
+      })),
+      project: current ? {
+        kicker: t(current.kicker), year: current.year, title: t(current.title),
+        blurb: t(current.blurb), body: current.body.map(t),
+        links: this.linksOf(current.links || {}, ui),
+        imageNote: current.image ? '' : 'Figure'
+      } : { body: [], links: [] },
+      publications: d.PUBLICATIONS.map(p => ({
+        year: p.year, title: t(p.title), authors: t(p.authors), venue: t(p.venue), links: this.linksOf(p, ui)
+      })),
+      presentationsIntl: d.PRESENTATIONS_INTL.map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), links: this.linksOf(p, ui) })),
+      presentationsDomestic: d.PRESENTATIONS_DOMESTIC.map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), links: this.linksOf(p, ui) })),
+      education: d.EDUCATION.map(e => ({ years: t(e.years), text: t(e.text) })),
+      recommendations: d.RECOMMENDATIONS.map(r => ({ title: t(r.title), desc: t(r.desc), url: r.url })),
+      socials: d.SOCIALS.filter(s => s.url || s.value).map(s => ({
+        label: t(s.label), href: s.value ? 'mailto:' + s.value : s.url
+      }))
+    });
+  }
+}
+</script>
+</body>
+</html>

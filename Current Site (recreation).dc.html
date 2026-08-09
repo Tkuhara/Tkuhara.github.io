@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+:root{--bg:#fafaf9;--bg-alt:#ffffff;--text:#1c1c1a;--text-muted:#5c5c58;--accent:#b45309;--accent-soft:#fde8cf;--border:#e7e5e0;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);color-scheme:light}
+:root[data-theme="dark"]{--bg:#16161a;--bg-alt:#1f1f24;--text:#eeeeec;--text-muted:#a5a5a0;--accent:#f0a860;--accent-soft:#3a2a15;--border:#2c2c32;--shadow:0 1px 3px rgba(0,0,0,0.4);color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+a{color:var(--accent)}
+</style>
+</helmet>
+<div style="background:var(--bg);color:var(--text);min-height:100vh">
+  <header style="position:sticky;top:0;z-index:10;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)">
+    <div style="max-width:780px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <a href="#top" style="font-weight:700;font-size:1.05rem;color:var(--text);text-decoration:none">{{ navBrand }}</a>
+      <nav style="display:flex;gap:20px;flex-wrap:wrap">
+        <a href="#about" style="color:var(--text-muted);text-decoration:none;font-size:0.92rem" style-hover="color:var(--accent)">{{ navAbout }}</a>
+        <a href="#research" style="color:var(--text-muted);text-decoration:none;font-size:0.92rem" style-hover="color:var(--accent)">{{ navResearch }}</a>
+        <a href="#cv" style="color:var(--text-muted);text-decoration:none;font-size:0.92rem" style-hover="color:var(--accent)">{{ navCv }}</a>
+        <a href="#recommendations" style="color:var(--text-muted);text-decoration:none;font-size:0.92rem" style-hover="color:var(--accent)">{{ navRecs }}</a>
+        <a href="#contact" style="color:var(--text-muted);text-decoration:none;font-size:0.92rem" style-hover="color:var(--accent)">{{ navContact }}</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button type="button" onClick="{{ toggleLang }}" style="font-family:inherit;font-size:0.85rem;background:var(--bg-alt);border:1px solid var(--border);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--text)">
+          <span style="{{ enStyle }}">EN</span><span style="color:var(--text-muted);margin:0 4px">/</span><span style="{{ jaStyle }}">日本語</span>
+        </button>
+        <button type="button" onClick="{{ toggleTheme }}" style="font-family:inherit;font-size:0.85rem;background:var(--bg-alt);border:1px solid var(--border);border-radius:999px;padding:6px 10px;cursor:pointer;color:var(--text)">{{ themeIcon }}</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section style="max-width:780px;margin:0 auto;text-align:center;padding:72px 24px 48px">
+      <div style="width:84px;height:84px;margin:0 auto 20px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.4rem;letter-spacing:0.02em">TK</div>
+      <h1 style="margin:0 0 6px;font-size:2.1rem">{{ heroName }}</h1>
+      <p style="color:var(--text-muted);margin:0 0 14px;font-size:1.05rem">{{ heroTitle }}</p>
+      <p style="max-width:480px;margin:0 auto 22px;color:var(--text-muted)">{{ heroTagline }}</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+        <sc-for list="{{ socials }}" as="s" hint-placeholder-count="3">
+          <a href="{{ s.href }}" target="_blank" rel="noopener" title="{{ s.label }}" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--bg-alt);border:1px solid var(--border);color:var(--text);text-decoration:none" style-hover="color:var(--accent);border-color:var(--accent)">{{ s.icon }}</a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="about" style="max-width:780px;margin:0 auto;padding:44px 24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:1.4rem;margin:0 0 14px">{{ aboutHeading }}</h2>
+      <p>{{ aboutBody }}</p>
+      <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:16px 0 0">
+        <sc-for list="{{ interests }}" as="t" hint-placeholder-count="6">
+          <li style="background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:0.85rem;font-weight:600">{{ t }}</li>
+        </sc-for>
+      </ul>
+    </section>
+
+    <section id="research" style="max-width:780px;margin:0 auto;padding:44px 24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:1.4rem;margin:0 0 14px">{{ researchHeading }}</h2>
+      <p>{{ researchIntro }}</p>
+
+      <h3 style="font-size:1.05rem;margin:28px 0 12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em;font-weight:600">{{ publicationsHeading }}</h3>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px">
+        <sc-for list="{{ publications }}" as="p" hint-placeholder-count="3">
+          <li style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)">
+            <p style="font-weight:600;margin:0 0 4px">{{ p.title }}</p>
+            <p style="color:var(--text-muted);font-size:0.88rem;margin:0">{{ p.meta }}</p>
+          </li>
+        </sc-for>
+      </ul>
+
+      <h3 style="font-size:1.05rem;margin:28px 0 12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em;font-weight:600">{{ presentationsHeading }}</h3>
+      <h4 style="font-size:0.88rem;margin:20px 0 10px;color:var(--text-muted);font-weight:600">{{ presentationsIntlHeading }}</h4>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px">
+        <sc-for list="{{ presentationsIntl }}" as="p" hint-placeholder-count="5">
+          <li style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)">
+            <p style="font-weight:600;margin:0 0 4px">{{ p.title }}</p>
+            <p style="color:var(--text-muted);font-size:0.88rem;margin:0">{{ p.meta }}</p>
+          </li>
+        </sc-for>
+      </ul>
+
+      <h4 style="font-size:0.88rem;margin:20px 0 10px;color:var(--text-muted);font-weight:600">{{ presentationsDomesticHeading }}</h4>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px">
+        <sc-for list="{{ presentationsDomestic }}" as="p" hint-placeholder-count="10">
+          <li style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)">
+            <p style="font-weight:600;margin:0 0 4px">{{ p.title }}</p>
+            <p style="color:var(--text-muted);font-size:0.88rem;margin:0">{{ p.meta }}</p>
+          </li>
+        </sc-for>
+      </ul>
+
+      <h3 style="font-size:1.05rem;margin:28px 0 12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em;font-weight:600">{{ educationHeading }}</h3>
+      <ul style="list-style:none;padding:0;margin:0;border-left:2px solid var(--border)">
+        <sc-for list="{{ education }}" as="e" hint-placeholder-count="3">
+          <li style="padding:2px 0 18px 20px;position:relative">
+            <span style="position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent)"></span>
+            <span style="font-size:0.85rem;color:var(--text-muted);display:block">{{ e.years }}</span>{{ e.text }}
+          </li>
+        </sc-for>
+      </ul>
+
+      <p style="margin-top:24px">
+        <a href="https://researchmap.jp/Takumi-Kuhara" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-weight:600" style-hover="text-decoration:underline">{{ fullProfileLink }} ↗</a>
+      </p>
+    </section>
+
+    <section id="cv" style="max-width:780px;margin:0 auto;padding:44px 24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:1.4rem;margin:0 0 14px">{{ cvHeading }}</h2>
+      <p>{{ cvBody }}</p>
+      <a href="assets/cv/Takumi_Kuhara_CV.pdf" download="download" style="display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:11px 20px;border-radius:var(--radius);text-decoration:none;font-weight:600;border:none;cursor:pointer" style-hover="opacity:0.9">{{ cvButton }}</a>
+    </section>
+
+    <section id="recommendations" style="max-width:780px;margin:0 auto;padding:44px 24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:1.4rem;margin:0 0 14px">{{ recsHeading }}</h2>
+      <p>{{ recsIntro }}</p>
+      <ul style="list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:14px">
+        <sc-for list="{{ recommendations }}" as="r" hint-placeholder-count="3">
+          <li style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)">
+            <p style="font-weight:600;margin:0 0 4px">{{ r.titleNode }}</p>
+            <p style="color:var(--text-muted);font-size:0.92rem;margin:0">{{ r.desc }}</p>
+          </li>
+        </sc-for>
+      </ul>
+    </section>
+
+    <section id="contact" style="max-width:780px;margin:0 auto;padding:44px 24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:1.4rem;margin:0 0 14px">{{ contactHeading }}</h2>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:row;flex-wrap:wrap;gap:12px">
+        <sc-for list="{{ socials }}" as="s" hint-placeholder-count="3">
+          <li style="display:flex">
+            <a href="{{ s.href }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:var(--radius);background:var(--bg-alt);border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:0.92rem" style-hover="color:var(--accent);border-color:var(--accent)">{{ s.iconSmall }}<span>{{ s.label }}</span></a>
+          </li>
+        </sc-for>
+      </ul>
+    </section>
+  </main>
+
+  <footer style="border-top:1px solid var(--border);padding:28px 0 60px;color:var(--text-muted);font-size:0.85rem;text-align:center">
+    <div style="max-width:780px;margin:0 auto;padding:0 24px"><p>{{ footerText }} {{ year }}</p></div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SITE_CONTENT = {
+  en: {
+    nav: { brand: "Takumi Kuhara", about: "About", research: "Research", cv: "CV", recommendations: "Recommendations", contact: "Contact" },
+    hero: { name: "Takumi Kuhara", title: "Doctoral Student, Nagoya Institute of Technology", tagline: "Studying how the body perceives vibration and touch — vibrotactile perception, haptics, and multisensory experience." },
+    about: { heading: "About & Interests", body: "I'm a doctoral student in the Graduate School of Engineering at Nagoya Institute of Technology, researching how humans perceive vibrotactile stimuli and how that perception can be used to design richer haptic experiences. My work sits at the intersection of psychophysics, human-computer interaction, and haptic engineering. Outside the lab, I'm interested in sound, signal processing, and building tools that make research easier to run and share. (Edit this paragraph in js/content.js.)", interests: ["Vibrotactile Perception","Haptics","Tactile Sensation","Psychophysics","Multisensory Integration","Signal Processing"] },
+    research: {
+      heading: "Research", intro: "My publications and conference presentations. For the most up-to-date list, see my researchmap profile.",
+      publicationsHeading: "Publications", presentationsHeading: "Presentations", presentationsIntlHeading: "International Conferences", presentationsDomesticHeading: "Domestic Conferences (Japan)", educationHeading: "Education", fullProfileLink: "See full profile on researchmap",
+      publications: [
+        { title: "Pseudo-Dribbling Experience Using Single Overlapped Vibrotactile Stimulation Simultaneously to the Hand and the Feet", authors: "Takumi Kuhara, Kakagu Komazaki, Junji Watanabe, Yoshihiro Tanaka", venue: "Multisensory Research", year: "2025" },
+        { title: "「第三者視点映像に対する運動模倣と複数部位への触覚提示による“なりきり体感観戦”の実現ー遠隔フェンシング観戦におけるユースケースー」", authors: "Takumi Kuhara et al.", venue: "Transactions of the Virtual Reality Society of Japan (Web), 28(2)", year: "2023" },
+        { title: "Vibrotactile Feedback System From the Fingertip to the Temples for Perceptual Enhancement of Contracture Palpation", authors: "Kazuhiro Niwa, Yoshihiro Tanaka, Kota Kitamichi, Takumi Kuhara, Kimihiro Uemura, Takafumi Saito", venue: "IEEE Transactions on Haptics, 14(2), 285-290", year: "2021" }
+      ],
+      presentationsIntl: [
+        { title: "Exploring Perceptual Effects of Phase Spectra in Vibrotactile Rendering", venue: "IEEE/SICE International Symposium on System Integration 2026", year: "2026" },
+        { title: "From Personal Vibration to Shared Perception: A Demonstration of Velcro Texture Tracing", venue: "World Haptics Conference 2025", year: "2025" },
+        { title: "Influence of Long-term Duration and Damping Shapes to Perceived Intensity for Vibrotactile Stimulation", venue: "IEEE/SICE International Symposium on System Integration 2025", year: "2025" },
+        { title: "Exploring Vibrotactile Intensity Perception with Multiple Waveform Parameters", venue: "Asia Haptics 2024", year: "2024" },
+        { title: "Spatiotemporal Perception of Single Overlapped Vibrotactile Stimulation to Multiple Body Locations", venue: "World Haptics Conference 2023", year: "2023" }
+      ],
+      presentationsDomestic: [
+        { title: "振動触覚刺激における振幅変化知覚に関与するパラメータの検討", venue: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集", year: "2025" },
+        { title: "ウェアラブル触覚センサにおける2自由度系皮膚振動モデル", venue: "日本バーチャルリアリティ学会大会論文集, 30th", year: "2025" },
+        { title: "ノイズの位相変調とテクスチャ感との関係", venue: "日本バーチャルリアリティ学会大会論文集, 30th", year: "2025" },
+        { title: "振動刺激の減衰時間が強度知覚へ与える影響", venue: "日本バーチャルリアリティ学会大会論文集, 29th", year: "2024" },
+        { title: "手足に対する合成振動触覚刺激提示による運動物体の速度知覚に関する検討", venue: "日本バーチャルリアリティ学会大会論文集, 28th", year: "2023" },
+        { title: "触覚クリップ：柔らかさ知覚バイアスを生起する足裏周囲への圧迫刺激", venue: "計測自動制御学会システムインテグレーション部門講演会, 24th", year: "2023" },
+        { title: "視覚による触覚刺激のマスキングに関する研究", venue: "日本バーチャルリアリティ学会研究報告, 27(HAP02)", year: "2022" },
+        { title: "合成振動触覚刺激に対する知覚現象の基礎検討", venue: "日本バーチャルリアリティ学会大会論文集, 27th", year: "2022" },
+        { title: "感情付き合成音声を伴う振動触覚刺激の心理的影響の調査", venue: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集", year: "2022" },
+        { title: "拘縮の触診をサポートする無線触覚共有システム", venue: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集", year: "2020" }
+      ],
+      education: [
+        { years: "2023 – Present", text: "Doctoral Program, Graduate School of Engineering, Nagoya Institute of Technology" },
+        { years: "2021 – 2023", text: "Master's Program, Creative Engineering, Nagoya Institute of Technology" },
+        { years: "2017 – 2021", text: "B.Eng., Materials & Energy Course, Nagoya Institute of Technology" }
+      ]
+    },
+    cv: { heading: "CV", body: "Download my full CV as a PDF.", button: "Download CV (PDF)" },
+    recommendations: { heading: "Recommendations", intro: "Tools, papers, and resources I find myself recommending often. (Replace these with your own — edit the \"recommendations\" array in js/content.js.)", items: [
+      { title: "researchmap", desc: "The academic profile platform I use to keep my publication list current.", url: "https://researchmap.jp/Takumi-Kuhara" },
+      { title: "World Haptics Conference", desc: "The flagship international conference in haptics research — a great way to follow the field.", url: "" },
+      { title: "Example resource", desc: "Swap this card for a book, tool, or paper you actually recommend.", url: "" }
+    ] },
+    contact: { heading: "Contact & Socials" },
+    socials: [
+      { label: "Email", type: "email", value: "t.kuhara12@gmail.com" },
+      { label: "researchmap", type: "link", url: "https://researchmap.jp/Takumi-Kuhara" },
+      { label: "ORCID", type: "link", url: "https://orcid.org/0009-0002-3966-2346" },
+      { label: "GitHub", type: "link", url: "" },
+      { label: "X / Twitter", type: "link", url: "" },
+      { label: "LinkedIn", type: "link", url: "" }
+    ],
+    footer: { text: "Built by Takumi Kuhara." }
+  },
+  ja: {
+    nav: { brand: "久原 拓巳", about: "自己紹介", research: "研究", cv: "CV", recommendations: "おすすめ", contact: "連絡先" },
+    hero: { name: "久原 拓巳", title: "名古屋工業大学大学院 博士後期課程", tagline: "振動知覚・触覚・多感覚体験について研究しています。" },
+    about: { heading: "自己紹介・興味分野", body: "名古屋工業大学大学院工学研究科の博士後期課程に在籍し、振動触覚刺激の知覚メカニズムと、それを応用したより豊かな触覚体験の設計について研究しています。心理物理学、ヒューマンコンピュータインタラクション、触覚工学の境界領域が専門です。研究以外では、音や信号処理、研究をより行いやすく共有しやすくするツール作りにも関心があります。（この文章は js/content.js で編集できます。）", interests: ["振動触覚知覚","ハプティクス","触覚","心理物理学","多感覚統合","信号処理"] },
+    research: {
+      heading: "研究", intro: "論文・学会発表を掲載しています。最新の情報は researchmap のプロフィールをご覧ください。",
+      publicationsHeading: "論文", presentationsHeading: "学会発表", presentationsIntlHeading: "国際学会", presentationsDomesticHeading: "国内学会", educationHeading: "学歴", fullProfileLink: "researchmap で全プロフィールを見る",
+      publications: [
+        { title: "Pseudo-Dribbling Experience Using Single Overlapped Vibrotactile Stimulation Simultaneously to the Hand and the Feet", authors: "久原拓巳, 駒崎嘉久, 渡邊淳司, 田中由浩", venue: "Multisensory Research", year: "2025" },
+        { title: "第三者視点映像に対する運動模倣と複数部位への触覚提示による“なりきり体感観戦”の実現ー遠隔フェンシング観戦におけるユースケースー", authors: "久原拓巳 他", venue: "日本バーチャルリアリティ学会論文誌(Web), 28(2)", year: "2023" },
+        { title: "Vibrotactile Feedback System From the Fingertip to the Temples for Perceptual Enhancement of Contracture Palpation", authors: "丹羽和寛, 田中由浩, 北道広太, 久原拓巳, 植村公博, 齊藤剛史", venue: "IEEE Transactions on Haptics, 14(2), 285-290", year: "2021" }
+      ],
+      presentationsIntl: [
+        { title: "Exploring Perceptual Effects of Phase Spectra in Vibrotactile Rendering", venue: "IEEE/SICE International Symposium on System Integration 2026", year: "2026" },
+        { title: "From Personal Vibration to Shared Perception: A Demonstration of Velcro Texture Tracing", venue: "World Haptics Conference 2025", year: "2025" },
+        { title: "Influence of Long-term Duration and Damping Shapes to Perceived Intensity for Vibrotactile Stimulation", venue: "IEEE/SICE International Symposium on System Integration 2025", year: "2025" },
+        { title: "Exploring Vibrotactile Intensity Perception with Multiple Waveform Parameters", venue: "Asia Haptics 2024", year: "2024" },
+        { title: "Spatiotemporal Perception of Single Overlapped Vibrotactile Stimulation to Multiple Body Locations", venue: "World Haptics Conference 2023", year: "2023" }
+      ],
+      presentationsDomestic: [
+        { title: "振動触覚刺激における振幅変化知覚に関与するパラメータの検討", venue: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集", year: "2025" },
+        { title: "ウェアラブル触覚センサにおける2自由度系皮膚振動モデル", venue: "日本バーチャルリアリティ学会大会論文集, 第30回", year: "2025" },
+        { title: "ノイズの位相変調とテクスチャ感との関係", venue: "日本バーチャルリアリティ学会大会論文集, 第30回", year: "2025" },
+        { title: "振動刺激の減衰時間が強度知覚へ与える影響", venue: "日本バーチャルリアリティ学会大会論文集, 第29回", year: "2024" },
+        { title: "手足に対する合成振動触覚刺激提示による運動物体の速度知覚に関する検討", venue: "日本バーチャルリアリティ学会大会論文集, 第28回", year: "2023" },
+        { title: "触覚クリップ：柔らかさ知覚バイアスを生起する足裏周囲への圧迫刺激", venue: "計測自動制御学会システムインテグレーション部門講演会, 第24回", year: "2023" },
+        { title: "視覚による触覚刺激のマスキングに関する研究", venue: "日本バーチャルリアリティ学会研究報告, 27(HAP02)", year: "2022" },
+        { title: "合成振動触覚刺激に対する知覚現象の基礎検討", venue: "日本バーチャルリアリティ学会大会論文集, 第27回", year: "2022" },
+        { title: "感情付き合成音声を伴う振動触覚刺激の心理的影響の調査", venue: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集", year: "2022" },
+        { title: "拘縮の触診をサポートする無線触覚共有システム", venue: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集", year: "2020" }
+      ],
+      education: [
+        { years: "2023年 – 現在", text: "名古屋工業大学大学院 工学研究科 博士後期課程" },
+        { years: "2021年 – 2023年", text: "名古屋工業大学大学院 創成シミュレーション工学専攻 修士課程" },
+        { years: "2017年 – 2021年", text: "名古屋工業大学 工学部 創成シミュレーション工学課程（材料・エネルギーコース）学士" }
+      ]
+    },
+    cv: { heading: "CV", body: "CV（履歴書）をPDFでダウンロードできます。", button: "CVをダウンロード (PDF)" },
+    recommendations: { heading: "おすすめ", intro: "よく人に薦めているツール・論文・リソースです。（js/content.js の recommendations 配列を編集して、自分のおすすめに差し替えてください。）", items: [
+      { title: "researchmap", desc: "業績リストを最新に保つために使っている研究者プロフィールサービス。", url: "https://researchmap.jp/Takumi-Kuhara" },
+      { title: "World Haptics Conference", desc: "ハプティクス分野の代表的な国際会議。分野の動向を追うのに最適。", url: "" },
+      { title: "サンプル項目", desc: "ここを実際におすすめしたい本・ツール・論文に差し替えてください。", url: "" }
+    ] },
+    contact: { heading: "連絡先・SNS" },
+    socials: [
+      { label: "メール", type: "email", value: "t.kuhara12@gmail.com" },
+      { label: "researchmap", type: "link", url: "https://researchmap.jp/Takumi-Kuhara" },
+      { label: "ORCID", type: "link", url: "https://orcid.org/0009-0002-3966-2346" },
+      { label: "GitHub", type: "link", url: "" },
+      { label: "X（旧Twitter）", type: "link", url: "" },
+      { label: "LinkedIn", type: "link", url: "" }
+    ],
+    footer: { text: "作成: 久原拓巳" }
+  }
+};
+
+const ICON_PATHS = {
+  email: { fill: "none", stroke: true, d: ["M4 4h16v16H4z", "m4 6 8 7 8-7"] },
+  link: { fill: "none", stroke: true, d: ["M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1", "M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"] },
+  github: { fill: "currentColor", stroke: false, d: ["M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.14c-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5Z"] },
+  x: { fill: "currentColor", stroke: false, d: ["M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.1-9.3L1 2h7l4.9 6.3L18.9 2Zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20Z"] },
+  linkedin: { fill: "currentColor", stroke: false, d: ["M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"] },
+  orcid: { fill: "currentColor", stroke: false, d: ["M12 .5C5.65.5.5 5.65.5 12S5.65 23.5 12 23.5 23.5 18.35 23.5 12 18.35.5 12 .5ZM7.37 4.9c.63 0 1.13.51 1.13 1.13a1.13 1.13 0 1 1-2.26 0c0-.62.5-1.13 1.13-1.13ZM6.4 9.06h1.94v9.98H6.4V9.06Zm3.79 0h3.86c3.68 0 5.3 2.63 5.3 4.99 0 2.57-2.01 4.99-5.27 4.99h-3.89V9.06Zm1.94 1.71v6.56h1.75c2.55 0 3.52-1.83 3.52-3.28 0-1.78-1.17-3.28-3.55-3.28h-1.72Z"] },
+  researchmap: { fill: "currentColor", stroke: false, d: ["M12 2 2 7l10 5 10-5-10-5Zm0 8L3.5 6.2 12 10l8.5-3.8L12 10ZM2 12l10 5 10-5v5l-10 5-10-5v-5Z"] }
+};
+
+function iconKey(label) {
+  const l = label.toLowerCase();
+  if (l.includes('email') || l.includes('メール')) return 'email';
+  if (l.includes('github')) return 'github';
+  if (l.includes('x') || l.includes('twitter')) return 'x';
+  if (l.includes('linkedin')) return 'linkedin';
+  if (l.includes('orcid')) return 'orcid';
+  if (l.includes('researchmap')) return 'researchmap';
+  return 'link';
+}
+
+function svgIcon(key, size) {
+  const spec = ICON_PATHS[key];
+  return React.createElement('svg', {
+    viewBox: '0 0 24 24', width: size, height: size,
+    fill: spec.stroke ? 'none' : 'currentColor',
+    stroke: spec.stroke ? 'currentColor' : undefined,
+    strokeWidth: spec.stroke ? 2 : undefined
+  }, spec.d.map((d, i) => React.createElement('path', { key: i, d })));
+}
+
+class Component extends DCLogic {
+  state = { lang: 'en', theme: 'light' };
+
+  componentDidMount() {
+    const stored = localStorage.getItem('lang');
+    const browserJa = navigator.language && navigator.language.toLowerCase().startsWith('ja');
+    const theme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    this.setState({ lang: stored || (browserJa ? 'ja' : 'en'), theme });
+  }
+
+  renderVals() {
+    const c = SITE_CONTENT[this.state.lang];
+    const active = { opacity: 1, fontWeight: 600, color: 'var(--accent)' };
+    const idle = { opacity: 0.45 };
+    return {
+      navBrand: c.nav.brand, navAbout: c.nav.about, navResearch: c.nav.research,
+      navCv: c.nav.cv, navRecs: c.nav.recommendations, navContact: c.nav.contact,
+      enStyle: this.state.lang === 'en' ? active : idle,
+      jaStyle: this.state.lang === 'ja' ? active : idle,
+      themeIcon: this.state.theme === 'dark' ? '🌙' : '☀️',
+      toggleLang: () => {
+        const next = this.state.lang === 'ja' ? 'en' : 'ja';
+        localStorage.setItem('lang', next);
+        document.documentElement.lang = next;
+        this.setState({ lang: next });
+      },
+      toggleTheme: () => {
+        const next = this.state.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', next);
+        document.documentElement.setAttribute('data-theme', next);
+        this.setState({ theme: next });
+      },
+      heroName: c.hero.name, heroTitle: c.hero.title, heroTagline: c.hero.tagline,
+      aboutHeading: c.about.heading, aboutBody: c.about.body, interests: c.about.interests,
+      researchHeading: c.research.heading, researchIntro: c.research.intro,
+      publicationsHeading: c.research.publicationsHeading,
+      presentationsHeading: c.research.presentationsHeading,
+      presentationsIntlHeading: c.research.presentationsIntlHeading,
+      presentationsDomesticHeading: c.research.presentationsDomesticHeading,
+      educationHeading: c.research.educationHeading,
+      fullProfileLink: c.research.fullProfileLink,
+      publications: c.research.publications.map(p => ({ title: p.title, meta: p.authors + ' — ' + p.venue + ', ' + p.year })),
+      presentationsIntl: c.research.presentationsIntl.map(p => ({ title: p.title, meta: p.venue + ', ' + p.year })),
+      presentationsDomestic: c.research.presentationsDomestic.map(p => ({ title: p.title, meta: p.venue + ', ' + p.year })),
+      education: c.research.education,
+      cvHeading: c.cv.heading, cvBody: c.cv.body, cvButton: c.cv.button,
+      recsHeading: c.recommendations.heading, recsIntro: c.recommendations.intro,
+      recommendations: c.recommendations.items.map(r => ({
+        titleNode: r.url ? React.createElement('a', { href: r.url, target: '_blank', rel: 'noopener', style: { color: 'var(--accent)', textDecoration: 'none' } }, r.title + ' ↗') : r.title,
+        desc: r.desc
+      })),
+      contactHeading: c.contact.heading,
+      socials: c.socials.filter(s => (s.type === 'email' ? s.value : s.url)).map(s => ({
+        label: s.label,
+        href: s.type === 'email' ? 'mailto:' + s.value : s.url,
+        icon: svgIcon(iconKey(s.label), 18),
+        iconSmall: svgIcon(iconKey(s.label), 16)
+      })),
+      footerText: c.footer.text,
+      year: String(new Date().getFullYear())
+    };
+  }
+}
+</script>
+</body>
+</html>
