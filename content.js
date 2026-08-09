@@ -100,23 +100,23 @@ export const PROJECTS = [
     id: "embodied-spectating",
     year: "2021",
     image: "",
-    title: { en: "Embodied Spectating", ja: "なりきり体感観戦" },
+    title: { en: "Becoming-player Sports Viewing", ja: "なりきり体感観戦" },
     kicker: { en: "Remote sports viewing", ja: "遠隔スポーツ観戦" },
     blurb: {
-      en: "Live sound from the fencing piste, turned into vibration under a remote spectator's feet and in the sword grip they hold — so watching becomes doing.",
-      ja: "試合会場の実音を振動に変換し、遠隔地の観戦者の足元と剣の柄型デバイスへ提示することで、「見る」観戦を「する」体験へ近づけます。"
+      en: "Third-person video, the spectator's own imitative movement, and vibration at several body sites — so a remote fencing spectator perceives the athlete's movements as their own.",
+      ja: "第三者視点映像に、観戦者自身の運動模倣と複数部位への振動触覚提示を重ね、遠隔のフェンシング観戦者が選手の動きを自分のものとして感じる体験をつくります。"
     },
     body: [
       { en: "Watching a sport on a screen is a flat experience. This project targeted the sense of being the athlete rather than watching one, using remote fencing as the case: fast, legible, and built on a small number of decisive contacts that map cleanly onto tactile events.",
         ja: "画面越しのスポーツ観戦は体験として平板になりがちです。本プロジェクトは「見る」のではなく「なる」感覚を目指しました。題材は遠隔フェンシング観戦です。動きが速く読み取りやすく、少数の決定的な接触が触覚イベントへ素直に対応づけられるためです。" },
-      { en: "Six microphones around the competition floor in Tokyo picked up the sounds the sport is actually made of — the impact of a lunge, the clash of blades. That audio was carried to spectators watching remotely and rendered as vibration through two channels: a platform beneath their feet, and a handheld device shaped like a sword grip.",
-        ja: "東京の競技会場に設置した6本のマイクが、この競技を成り立たせている音——踏み込みの衝撃、剣の打ち合い——を収録します。その音を遠隔地の観戦者へ伝送し、足元の台と剣の柄を模した手持ちデバイスという2系統で振動として提示しました。" },
-      { en: "Spectators also moved their own sword arm along with the athlete they were supporting, so the tactile signal arriving from the venue met their own motion. That pairing — felt contact plus self-generated movement — is what carries the experience across.",
-        ja: "同時に観戦者自身も、応援する選手に合わせて剣を持つ手を動かします。会場から届く触覚信号と自分の運動が重なること——感じる接触と、自ら生み出す動き——が体験の核になっています。" },
-      { en: "Run at the 74th All Japan Fencing Championship (6 November 2021, Roppongi Hills Arena), an event ICT-supported by the NTT West Group. The project's official name is 「なりきり体感観戦」; 'Embodied Spectating' is a working English rendering, as no official English title exists.",
-        ja: "NTT西日本グループがICTをサポートする第74回全日本フェンシング選手権大会（2021年11月6日、六本木ヒルズアリーナ）にて実施。公式名称は「なりきり体感観戦」で、英語表記の Embodied Spectating は便宜的な訳です（公式の英語名は存在しません）。" }
+      { en: "The experience rests on three things at once: third-person footage of the match, the spectator imitating the movements of the athlete they are supporting, and vibrotactile feedback delivered to more than one body site. Felt contact and self-generated movement arriving together is what carries the sense of embodiment.",
+        ja: "体験は3つの要素の同時成立で成り立ちます。試合の第三者視点映像、応援する選手の動きを観戦者自身が模倣すること、そして複数部位への振動触覚提示です。感じる接触と、自ら生み出す動きが同時に届くことが、なりきりの感覚を支えています。" },
+      { en: "At the public demonstration, six microphones around the competition floor in Tokyo picked up the sounds the sport is actually made of — the impact of a lunge, the clash of blades. That audio was carried to spectators watching remotely and rendered as vibration through a platform beneath their feet and a handheld device shaped like a sword grip.",
+        ja: "一般公開デモでは、東京の競技会場に設置した6本のマイクが、この競技を成り立たせている音——踏み込みの衝撃、剣の打ち合い——を収録。その音を遠隔地の観戦者へ伝送し、足元の台と剣の柄を模した手持ちデバイスで振動として提示しました。" },
+      { en: "A collaboration between NTT Communication Science Laboratories and Nagoya Institute of Technology, demonstrated at the 74th All Japan Fencing Championship (6 November 2021, Roppongi Hills Arena) — an event ICT-supported by the NTT West Group. Published in the Transactions of the Virtual Reality Society of Japan; I am second author.",
+        ja: "NTTコミュニケーション科学基礎研究所と名古屋工業大学による共同研究。NTT西日本グループがICTをサポートする第74回全日本フェンシング選手権大会（2021年11月6日、六本木ヒルズアリーナ）にて実施。日本バーチャルリアリティ学会論文誌に採録（第2著者）。" }
     ],
-    links: { doi: "", pdf: "", video: "", page: "https://furue.ilab.ntt.co.jp/book/202201/contents1.html" }
+    links: { doi: "https://doi.org/10.18974/tvrsj.28.2_91", pdf: "", video: "", page: "https://furue.ilab.ntt.co.jp/book/202201/contents1.html" }
   },
   {
     id: "intensity-perception",
@@ -166,31 +166,31 @@ export const PROJECTS = [
    video : "https://youtu.be/xxxxxxxx"
    Leave a field as "" (or delete the line) and its button is hidden.
    ------------------------------------------------------------------------ */
+/* Each paper is listed in the language it was published in — an English paper
+   stays English, a Japanese paper stays Japanese, and neither gets a translated
+   twin. Writing only { en: ... } or only { ja: ... } is enough: the site falls
+   back to whichever one exists, so a reader in the other language sees the
+   original rather than an invented translation. Add the second language only
+   where a real official one exists and you want it shown. */
 export const PUBLICATIONS = [
   {
-    title: { en: "Pseudo-Dribbling Experience Using Single Overlapped Vibrotactile Stimulation Simultaneously to the Hand and the Feet",
-             ja: "Pseudo-Dribbling Experience Using Single Overlapped Vibrotactile Stimulation Simultaneously to the Hand and the Feet" },
-    authors: { en: "Takumi Kuhara, Kakagu Komazaki, Junji Watanabe, Yoshihiro Tanaka",
-               ja: "久原拓巳, 駒崎嘉久, 渡邊淳司, 田中由浩" },
-    venue: { en: "Multisensory Research", ja: "Multisensory Research" },
+    title: { en: "Pseudo-Dribbling Experience Using Single Overlapped Vibrotactile Stimulation Simultaneously to the Hand and the Feet" },
+    authors: { en: "Takumi Kuhara, Kakagu Komazaki, Junji Watanabe, Yoshihiro Tanaka" },
+    venue: { en: "Multisensory Research" },
     year: "2025",
     doi: "", pdf: "", video: ""
   },
   {
-    title: { en: "Embodied Remote Spectating via Motion Imitation and Multi-site Tactile Presentation for Third-person Video",
-             ja: "第三者視点映像に対する運動模倣と複数部位への触覚提示による「なりきり体感観戦」の実現ー遠隔フェンシング観戦におけるユースケースー" },
-    authors: { en: "Takumi Kuhara et al.", ja: "久原拓巳 他" },
-    venue: { en: "Transactions of the Virtual Reality Society of Japan (Web), 28(2)",
-             ja: "日本バーチャルリアリティ学会論文誌(Web), 28(2)" },
+    title: { ja: "第三者視点映像に対する運動模倣と複数部位への触覚提示による「なりきり体感観戦」の実現ー遠隔フェンシング観戦におけるユースケースー" },
+    authors: { ja: "駒﨑掲, 久原拓巳, 田中由浩, 渡邊淳司" },
+    venue: { ja: "日本バーチャルリアリティ学会論文誌, 28(2), 91–100" },
     year: "2023",
-    doi: "", pdf: "", video: ""
+    doi: "https://doi.org/10.18974/tvrsj.28.2_91", pdf: "", video: ""
   },
   {
-    title: { en: "Vibrotactile Feedback System From the Fingertip to the Temples for Perceptual Enhancement of Contracture Palpation",
-             ja: "Vibrotactile Feedback System From the Fingertip to the Temples for Perceptual Enhancement of Contracture Palpation" },
-    authors: { en: "Kazuhiro Niwa, Yoshihiro Tanaka, Kota Kitamichi, Takumi Kuhara, Kimihiro Uemura, Takafumi Saito",
-               ja: "丹羽和寛, 田中由浩, 北道広太, 久原拓巳, 植村公博, 齊藤剛史" },
-    venue: { en: "IEEE Transactions on Haptics, 14(2), 285–290", ja: "IEEE Transactions on Haptics, 14(2), 285–290" },
+    title: { en: "Vibrotactile Feedback System From the Fingertip to the Temples for Perceptual Enhancement of Contracture Palpation" },
+    authors: { en: "Kazuhiro Niwa, Yoshihiro Tanaka, Kota Kitamichi, Takumi Kuhara, Kimihiro Uemura, Takafumi Saito" },
+    venue: { en: "IEEE Transactions on Haptics, 14(2), 285–290" },
     year: "2021",
     doi: "", pdf: "", video: ""
   }
