@@ -176,9 +176,9 @@ export const PUBLICATIONS = [
   {
     title: { en: "Pseudo-Dribbling Experience Using Single Overlapped Vibrotactile Stimulation Simultaneously to the Hand and the Feet" },
     authors: { en: "Takumi Kuhara, Kakagu Komazaki, Junji Watanabe, Yoshihiro Tanaka" },
-    venue: { en: "Multisensory Research" },
+    venue: { en: "Multisensory Research, 39(3–5), 379–398" },
     year: "2025",
-    doi: "", pdf: "", video: ""
+    doi: "https://doi.org/10.1163/22134808-bja10157", pdf: "", video: ""
   },
   {
     title: { ja: "第三者視点映像に対する運動模倣と複数部位への触覚提示による「なりきり体感観戦」の実現ー遠隔フェンシング観戦におけるユースケースー" },
