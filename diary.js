@@ -56,15 +56,15 @@
    ========================================================================== */
 
 export const ENTRIES = [
-  {
-    date: "2026-08-05",
-    lang: "en",
-    title: "A voice coil that fits under a fingernail",
-    body: [
-      "Spent the afternoon with a sample of a very small voice-coil actuator, the sort meant for wearables. Below about 80 Hz it gives up entirely, which is where most of the interesting texture cues live, so it is not going into an experiment any time soon.",
-      "Still, holding one is a useful correction. It is easy to design stimuli in a plotting window and forget that somewhere at the end of the chain there is a piece of metal with a mass and a spring constant that disagree with you."
-    ]
-  },
+   {
+     date: "2026-08-09",       // always YYYY-MM-DD
+     lang: "en",               // "en" or "ja" — this entry's language
+     title: "Publishing my Portfolio",
+     body: [
+       "I have finally decided to publish my portfolio as a website, and decided to connect it to my small diary, which is just notes (very loose), that I wonder sometimes.",
+       "I might be talking about some papers that I find interesting, or just some tips of random facts. But mainly the diary will be completely random technical/research/private stuff."
+     ]
+   },
   {
     date: "2026-07-22",
     lang: "ja",
