@@ -302,6 +302,7 @@ export const SOCIALS = [
   { label: { en: "Email", ja: "メール" }, icon: "email", value: "t.kuhara12@gmail.com" },
   { label: { en: "researchmap", ja: "researchmap" }, icon: "researchmap", url: "https://researchmap.jp/Takumi-Kuhara" },
   { label: { en: "ORCID", ja: "ORCID" }, icon: "orcid", url: "https://orcid.org/0009-0002-3966-2346" },
+  { label: { en: "Google Scholar", ja: "Google Scholar" }, icon: "scholar", url: "https://scholar.google.com/citations?user=07yBlb4AAAAJ" },
   { label: { en: "GitHub", ja: "GitHub" }, icon: "github", url: "" },
   { label: { en: "X / Twitter", ja: "X（旧Twitter）" }, icon: "x", url: "" },
   { label: { en: "LinkedIn", ja: "LinkedIn" }, icon: "linkedin", url: "" }
