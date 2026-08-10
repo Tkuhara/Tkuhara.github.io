@@ -73,6 +73,24 @@ export const PROFILE = {
    ------------------------------------------------------------------------ */
 export const PROJECTS = [
   {
+    id: "intensity-perception",
+    year: "2024–",
+    image: "assets/img/projects/intensity-perception.png",
+    title: { en: "Vibration Perceptual Mechanisms", ja: "振動知覚メカニズム" },
+    kicker: { en: "Psychophysics", ja: "心理物理" },
+    blurb: {
+      en: "Amplitude is not intensity. A series of studies on how duration, damping and phase spectra change how strong a vibration feels.",
+      ja: "振幅は強度ではありません。持続時間・減衰・位相スペクトルが振動の知覚強度をどう変えるのかを一連の実験で調べています。"
+    },
+    body: [
+      { en: "Designers routinely set the 'strength' of a haptic effect with a single amplitude number. Perceptually that is wrong: the same peak amplitude can feel dramatically different depending on how long the vibration lasts and how it decays.",
+        ja: "触覚効果の「強さ」は、実務上ふつう振幅という一つの数値で設定されます。しかし知覚的にはこれは正しくありません。同じピーク振幅でも、持続時間や減衰の仕方によって感じられる強さは大きく変わります。" },
+      { en: "This ongoing series measures those effects one parameter at a time — long-term duration, damping shape, and most recently the phase spectrum of noise-like signals — with the goal of a practical perceptual intensity model that content authors can actually use.",
+        ja: "本シリーズでは、長時間の持続、減衰形状、そして直近ではノイズ状信号の位相スペクトルというように、パラメータを一つずつ切り分けて測定しています。目標は、コンテンツ制作者が実際に使える知覚強度モデルです。" }
+    ],
+    links: { doi: "", pdf: "", video: "" }
+  },
+  {
     id: "pseudo-dribbling",
     year: "2022–",
     image: "assets/img/projects/pseudo-dribbling.png",
@@ -91,7 +109,7 @@ export const PROJECTS = [
         ja: "この知見は、単一のアクチュエータ系統と複数の提示部位、そして知覚そのものを利用した低コストな全身触覚コンテンツの可能性を示しています。" }
     ],
     links: {
-      doi: "",
+      doi: "https://doi.org/10.1163/22134808-bja10157",
       pdf: "",
       video: ""
     }
@@ -119,24 +137,6 @@ export const PROJECTS = [
     links: { doi: "https://doi.org/10.18974/tvrsj.28.2_91", pdf: "", video: "", page: "https://furue.ilab.ntt.co.jp/book/202201/contents1.html" }
   },
   {
-    id: "intensity-perception",
-    year: "2024–",
-    image: "assets/img/projects/intensity-perception.png",
-    title: { en: "Vibration Perceptual Mechanisms", ja: "振動知覚メカニズム" },
-    kicker: { en: "Psychophysics", ja: "心理物理" },
-    blurb: {
-      en: "Amplitude is not intensity. A series of studies on how duration, damping and phase spectra change how strong a vibration feels.",
-      ja: "振幅は強度ではありません。持続時間・減衰・位相スペクトルが振動の知覚強度をどう変えるのかを一連の実験で調べています。"
-    },
-    body: [
-      { en: "Designers routinely set the 'strength' of a haptic effect with a single amplitude number. Perceptually that is wrong: the same peak amplitude can feel dramatically different depending on how long the vibration lasts and how it decays.",
-        ja: "触覚効果の「強さ」は、実務上ふつう振幅という一つの数値で設定されます。しかし知覚的にはこれは正しくありません。同じピーク振幅でも、持続時間や減衰の仕方によって感じられる強さは大きく変わります。" },
-      { en: "This ongoing series measures those effects one parameter at a time — long-term duration, damping shape, and most recently the phase spectrum of noise-like signals — with the goal of a practical perceptual intensity model that content authors can actually use.",
-        ja: "本シリーズでは、長時間の持続、減衰形状、そして直近ではノイズ状信号の位相スペクトルというように、パラメータを一つずつ切り分けて測定しています。目標は、コンテンツ制作者が実際に使える知覚強度モデルです。" }
-    ],
-    links: { doi: "", pdf: "", video: "" }
-  },
-  {
     id: "palpation-feedback",
     year: "2019–2020",
     image: "assets/img/projects/palpation-feedback.png",
@@ -152,7 +152,7 @@ export const PROJECTS = [
       { en: "Perceptual enhancement was measurable, and the approach generalises to any tactile skill where the informative signal sits near the threshold of the sensing site.",
         ja: "知覚の向上は定量的に確認され、この手法は情報を担う信号が計測部位の閾値付近にある触覚技能全般へ応用可能です。" }
     ],
-    links: { doi: "", pdf: "", video: "" }
+    links: { doi: "https://doi.org/10.1109/TOH.2021.3076501", pdf: "", video: "" }
   }
 ];
 
