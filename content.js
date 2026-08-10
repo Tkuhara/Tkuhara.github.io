@@ -75,7 +75,7 @@ export const PROJECTS = [
   {
     id: "pseudo-dribbling",
     year: "2022–2025",
-    image: "",
+    image: "assets/img/projects/pseudo-dribbling.png",
     title: { en: "Pseudo-Dribbling", ja: "擬似ドリブル体験" },
     kicker: { en: "Whole-body haptics", ja: "全身触覚" },
     blurb: {
@@ -99,7 +99,7 @@ export const PROJECTS = [
   {
     id: "embodied-spectating",
     year: "2021",
-    image: "",
+    image: "assets/img/projects/embodied-spectating.png",
     title: { en: "Becoming-player Sports Viewing", ja: "なりきり体感観戦" },
     kicker: { en: "Remote sports viewing", ja: "遠隔スポーツ観戦" },
     blurb: {
@@ -121,7 +121,7 @@ export const PROJECTS = [
   {
     id: "intensity-perception",
     year: "2024–",
-    image: "",
+    image: "assets/img/projects/intensity-perception.png",
     title: { en: "What Makes a Vibration Feel Strong", ja: "振動はなぜ「強く」感じるのか" },
     kicker: { en: "Psychophysics", ja: "心理物理" },
     blurb: {
@@ -139,7 +139,7 @@ export const PROJECTS = [
   {
     id: "palpation-feedback",
     year: "2019–2021",
-    image: "",
+    image: "assets/img/projects/palpation-feedback.png",
     title: { en: "Palpation Feedback", ja: "触診支援フィードバック" },
     kicker: { en: "Clinical haptics", ja: "医療応用" },
     blurb: {
