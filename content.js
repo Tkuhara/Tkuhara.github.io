@@ -205,6 +205,10 @@ export const PUBLICATIONS = [
    "Abstract-reviewed · Hands-on demo". Separate items with " · ". Leave it out
    and the line disappears. */
 export const PRESENTATIONS_INTL = [
+  { title: { en: "Influence of Background Noise on the Temporal Perception of Vibrotactile Stimuli" },
+    venue: { en: "EuroHaptics 2026" }, year: "2026",
+    tags: { en: "Abstract-reviewed · Work-in-progress · Poster", ja: "アブストラクト査読 · WIP（進行中研究） · ポスター発表" },
+    doi: "", pdf: "", video: "" },
   { title: { en: "Exploring Perceptual Effects of Phase Spectra in Vibrotactile Rendering" },
     venue: { en: "IEEE/SICE International Symposium on System Integration 2026" }, year: "2026",
     tags: { en: "Full paper (peer-reviewed) · Oral", ja: "フルペーパー査読 · 口頭発表" },
@@ -232,6 +236,9 @@ export const PRESENTATIONS_INTL = [
    5. PRESENTATIONS — domestic conferences (Japan)
    ------------------------------------------------------------------------ */
 export const PRESENTATIONS_DOMESTIC = [
+  { title: { ja: "テクスチャなぞり時の皮膚振動における位相スペクトルの再現性に関する基礎研究",
+             en: "Basic Study on Reproducibility of Phase Spectra of Skin Vibrations among Exploration of Textures" },
+    venue: { ja: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集" }, year: "2026", doi: "", pdf: "" },
   { title: { ja: "振動触覚刺激における振幅変化知覚に関与するパラメータの検討" },
     venue: { ja: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集" }, year: "2025", doi: "", pdf: "" },
   { title: { ja: "ウェアラブル触覚センサにおける2自由度系皮膚振動モデル" },
