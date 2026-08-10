@@ -282,10 +282,14 @@ export const RECOMMENDATIONS = [
     desc:  { en: "The academic profile platform I use to keep my publication list current.",
              ja: "業績リストを最新に保つために使っている研究者プロフィールサービス。" },
     url: "https://researchmap.jp/Takumi-Kuhara" },
-  { title: { en: "World Haptics Conference", ja: "World Haptics Conference" },
-    desc:  { en: "The flagship international conference in haptics research — a good way to follow the field.",
-             ja: "ハプティクス分野の代表的な国際会議。分野の動向を追うのに最適。" },
-    url: "" }
+  { title: { en: "Consensus", ja: "Consensus" },
+    desc:  { en: "Search engine that answers a research question with what the papers actually found — useful for a fast read on where the evidence stands.",
+             ja: "研究上の問いに対して、論文が実際に示した知見で答える検索エンジン。エビデンスの現状を素早く掴むのに便利。" },
+    url: "https://consensus.app" },
+  { title: { en: "Semantic Scholar", ja: "Semantic Scholar" },
+    desc:  { en: "How I trace citations and find the papers around a paper — the reference graph is far easier to walk than a keyword search.",
+             ja: "引用関係をたどり、ある論文の周辺研究を探すのに使っています。キーワード検索よりも参照グラフの方が辿りやすい。" },
+    url: "https://www.semanticscholar.org" }
 ];
 
 
