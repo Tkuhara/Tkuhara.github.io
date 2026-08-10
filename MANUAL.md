@@ -271,6 +271,54 @@ https://yourusername.github.io
 
 Bookmark that. It's yours permanently and it's free.
 
+### Publishing automatically once a day
+
+Editing and saving a file does **not** update the site. Unlike Google Drive,
+git needs you to say "record this" and "send it" as separate steps. A daily job
+now does that for you.
+
+```
+21:47 every day →  publish.sh  →  check content.js and diary.js parse
+                                  ├─ OK      → commit + push → live in 1–3 min
+                                  └─ broken  → stop, site stays on yesterday
+```
+
+So anything you write today is live by tonight, without you touching git. You
+can still publish immediately at any time:
+
+```bash
+cd ~/Sites/Tkuhara.github.io
+./publish.sh "added a diary entry"
+```
+
+**Why the parse check.** `content.js` and `diary.js` are loaded as ES modules,
+so a single missing comma blanks the entire page. Without the check, a typo
+would be published and stay broken until you noticed. With it, a broken file
+simply isn't pushed and the live site keeps yesterday's working version.
+
+See what it has been doing:
+
+```bash
+tail -20 ~/Library/Logs/tkuhara-site-publish.log
+```
+
+Change the time, or turn it off:
+
+```bash
+# edit the Hour/Minute in the file, then reload
+open -e ~/Library/LaunchAgents/com.tkuhara.site-publish.plist
+launchctl bootout gui/$(id -u)/com.tkuhara.site-publish
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.tkuhara.site-publish.plist
+
+# off for good
+launchctl bootout gui/$(id -u)/com.tkuhara.site-publish
+rm ~/Library/LaunchAgents/com.tkuhara.site-publish.plist
+```
+
+If the Mac is asleep or off at 21:47, the job runs once the machine is awake
+again. If you edit files on GitHub's website as well as here, the two copies
+can diverge — run `git pull` before editing locally, or stick to one place.
+
 ### Step 6 — Updating the site later
 
 Whenever you add a diary entry or a paper:
