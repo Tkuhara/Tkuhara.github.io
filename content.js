@@ -74,13 +74,13 @@ export const PROFILE = {
 export const PROJECTS = [
   {
     id: "pseudo-dribbling",
-    year: "2022–2025",
+    year: "2022–",
     image: "assets/img/projects/pseudo-dribbling.png",
-    title: { en: "Pseudo-Dribbling", ja: "擬似ドリブル体験" },
+    title: { en: "SOVS — Single Overlapped Vibrotactile Stimulation", ja: "SOVS（単一重畳振動触覚刺激）" },
     kicker: { en: "Whole-body haptics", ja: "全身触覚" },
     blurb: {
-      en: "A single vibration signal, delivered to the hand and the feet at once, makes you feel like you are dribbling a ball that isn't there.",
-      ja: "手と足に同時に提示した一つの重畳振動刺激によって、実在しないボールをドリブルしている感覚を生み出します。"
+      en: "One overlapped vibration signal delivered to several body sites at once. In the pseudo-dribbling case it makes you feel a ball that isn't there — and the same principle is where the work continues.",
+      ja: "一つの重畳振動刺激を複数部位へ同時に提示する手法。擬似ドリブル体験では実在しないボールの感覚を生み、この原理を軸に研究を継続しています。"
     },
     body: [
       { en: "Most haptic systems drive each body site with its own signal. We asked a simpler question: what happens when one overlapped vibrotactile stimulus is delivered to several parts of the body at the same time?",
@@ -122,7 +122,7 @@ export const PROJECTS = [
     id: "intensity-perception",
     year: "2024–",
     image: "assets/img/projects/intensity-perception.png",
-    title: { en: "What Makes a Vibration Feel Strong", ja: "振動はなぜ「強く」感じるのか" },
+    title: { en: "Vibration Perceptual Mechanisms", ja: "振動知覚メカニズム" },
     kicker: { en: "Psychophysics", ja: "心理物理" },
     blurb: {
       en: "Amplitude is not intensity. A series of studies on how duration, damping and phase spectra change how strong a vibration feels.",
@@ -138,7 +138,7 @@ export const PROJECTS = [
   },
   {
     id: "palpation-feedback",
-    year: "2019–2021",
+    year: "2019–2020",
     image: "assets/img/projects/palpation-feedback.png",
     title: { en: "Palpation Feedback", ja: "触診支援フィードバック" },
     kicker: { en: "Clinical haptics", ja: "医療応用" },
