@@ -134,7 +134,7 @@ export const PROJECTS = [
       { en: "A collaboration between NTT Communication Science Laboratories and Nagoya Institute of Technology, demonstrated at the 74th All Japan Fencing Championship (6 November 2021, Roppongi Hills Arena) — an event ICT-supported by the NTT West Group. Published in the Transactions of the Virtual Reality Society of Japan; I am second author.",
         ja: "NTTコミュニケーション科学基礎研究所と名古屋工業大学による共同研究。NTT西日本グループがICTをサポートする第74回全日本フェンシング選手権大会（2021年11月6日、六本木ヒルズアリーナ）にて実施。日本バーチャルリアリティ学会論文誌に採録（第2著者）。" }
     ],
-    links: { doi: "https://doi.org/10.18974/tvrsj.28.2_91", pdf: "", video: "", page: "https://furue.ilab.ntt.co.jp/book/202201/contents1.html" }
+    links: { doi: "https://doi.org/10.18974/tvrsj.28.2_91", pdf: "https://www.jstage.jst.go.jp/article/tvrsj/28/2/28_91/_pdf", video: "", page: "https://furue.ilab.ntt.co.jp/book/202201/contents1.html" }
   },
   {
     id: "palpation-feedback",
@@ -185,7 +185,7 @@ export const PUBLICATIONS = [
     authors: { ja: "駒﨑掲, 久原拓巳, 田中由浩, 渡邊淳司" },
     venue: { ja: "日本バーチャルリアリティ学会論文誌, 28(2), 91–100" },
     year: "2023",
-    doi: "https://doi.org/10.18974/tvrsj.28.2_91", pdf: "", video: ""
+    doi: "https://doi.org/10.18974/tvrsj.28.2_91", pdf: "https://www.jstage.jst.go.jp/article/tvrsj/28/2/28_91/_pdf", video: ""
   },
   {
     title: { en: "Vibrotactile Feedback System From the Fingertip to the Temples for Perceptual Enhancement of Contracture Palpation" },
@@ -220,7 +220,7 @@ export const PRESENTATIONS_INTL = [
   { title: { en: "Exploring Vibrotactile Intensity Perception with Multiple Waveform Parameters" },
     venue: { en: "Asia Haptics 2024" }, year: "2024",
     tags: { en: "Abstract-reviewed · Hands-on demo", ja: "アブストラクト査読 · ハンズオンデモ" },
-    doi: "", arxiv: "https://arxiv.org/abs/2411.05099", pdf: "", video: "" },
+    doi: "", arxiv: "https://arxiv.org/abs/2411.05099", pdf: "https://arxiv.org/pdf/2411.05099", video: "" },
   { title: { en: "Spatiotemporal Perception of Single Overlapped Vibrotactile Stimulation to Multiple Body Locations" },
     venue: { en: "World Haptics Conference 2023" }, year: "2023",
     tags: { en: "Full paper (peer-reviewed) · Oral", ja: "フルペーパー査読 · 口頭発表" },

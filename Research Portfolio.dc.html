@@ -57,7 +57,7 @@ a:hover{color:var(--color-accent-600)}
           </sc-for>
           <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
             <sc-for list="{{ project.links }}" as="l" hint-placeholder-count="0">
-              <a href="{{ l.href }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 16px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} ↗</a>
+              <a href="{{ l.href }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 16px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} {{ l.mark }}</a>
             </sc-for>
           </div>
         </div>
@@ -150,7 +150,7 @@ a:hover{color:var(--color-accent-600)}
                 <p style="margin:2px 0 0;font-size:14px;line-height:1.5;opacity:0.62;font-style:italic">{{ p.venue }}</p>
                 <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
                   <sc-for list="{{ p.links }}" as="l" hint-placeholder-count="0">
-                    <a href="{{ l.href }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} ↗</a>
+                    <a href="{{ l.href }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} {{ l.mark }}</a>
                   </sc-for>
                 </div>
               </div>
@@ -171,7 +171,7 @@ a:hover{color:var(--color-accent-600)}
                 </sc-if>
                 <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
                   <sc-for list="{{ p.links }}" as="l" hint-placeholder-count="0">
-                    <a href="{{ l.href }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} ↗</a>
+                    <a href="{{ l.href }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} {{ l.mark }}</a>
                   </sc-for>
                 </div>
               </div>
@@ -189,7 +189,7 @@ a:hover{color:var(--color-accent-600)}
                 <p style="margin:0;font-size:14px;line-height:1.5;opacity:0.62;font-style:italic">{{ p.venue }}</p>
                 <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
                   <sc-for list="{{ p.links }}" as="l" hint-placeholder-count="0">
-                    <a href="{{ l.href }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} ↗</a>
+                    <a href="{{ l.href }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} {{ l.mark }}</a>
                   </sc-for>
                 </div>
               </div>
@@ -313,12 +313,12 @@ class Component extends DCLogic {
 
   linksOf(o, ui) {
     const out = [];
-    if (o.doi) out.push({ label: ui.link_doi, href: o.doi });
-    if (o.arxiv) out.push({ label: 'arXiv', href: o.arxiv });
-    if (o.pdf) out.push({ label: ui.link_pdf, href: o.pdf });
-    if (o.video) out.push({ label: ui.link_video, href: o.video });
-    if (o.page) out.push({ label: 'Page', href: o.page });
-    if (o.code) out.push({ label: 'Code', href: o.code });
+    if (o.doi) out.push({ label: ui.link_doi, href: o.doi, mark: '↗' });
+    if (o.arxiv) out.push({ label: 'arXiv', href: o.arxiv, mark: '↗' });
+    if (o.pdf) out.push({ label: ui.link_pdf, href: o.pdf, mark: '⇩' });
+    if (o.video) out.push({ label: ui.link_video, href: o.video, mark: '↗' });
+    if (o.page) out.push({ label: 'Page', href: o.page, mark: '↗' });
+    if (o.code) out.push({ label: 'Code', href: o.code, mark: '↗' });
     return out;
   }
 
