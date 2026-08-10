@@ -63,7 +63,7 @@ a:hover{color:var(--color-accent-600)}
         </div>
         <figure style="margin:0">
           <sc-if value="{{ project.hasImage }}" hint-placeholder-val="{{ false }}">
-            <img class="grayscale" src="{{ project.image }}" alt="{{ project.title }}" loading="lazy" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid var(--color-divider)">
+            <img class="grayscale" src="{{ project.image }}" alt="{{ project.title }}" loading="lazy" style="display:block;width:100%;height:auto;background:var(--color-surface);border:2px solid var(--color-divider)">
           </sc-if>
           <sc-if value="{{ project.noImage }}" hint-placeholder-val="{{ true }}">
             <div class="grayscale" style="aspect-ratio:4/3;background:var(--color-surface);border:2px solid var(--color-divider);display:flex;align-items:flex-end;padding:14px">
@@ -105,7 +105,7 @@ a:hover{color:var(--color-accent-600)}
             <a href="{{ p.href }}" onClick="{{ p.open }}" style="display:flex;flex-direction:column;gap:14px;background:var(--color-bg);padding:22px;text-decoration:none;color:var(--color-text)" style-hover="background:var(--color-surface)">
               <div class="grayscale" style="aspect-ratio:16/10;background:var(--color-surface);border:1px solid var(--color-divider);overflow:hidden">
                 <sc-if value="{{ p.hasImage }}" hint-placeholder-val="{{ false }}">
-                  <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover">
+                  <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" style="display:block;width:100%;height:100%;object-fit:contain">
                 </sc-if>
               </div>
               <p style="margin:0;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--color-accent)">{{ p.kicker }} · {{ p.year }}</p>
