@@ -192,7 +192,7 @@ export const PUBLICATIONS = [
     authors: { en: "Kazuhiro Niwa, Yoshihiro Tanaka, Kota Kitamichi, Takumi Kuhara, Kimihiro Uemura, Takafumi Saito" },
     venue: { en: "IEEE Transactions on Haptics, 14(2), 285–290" },
     year: "2021",
-    doi: "", pdf: "", video: ""
+    doi: "https://doi.org/10.1109/TOH.2021.3076501", pdf: "", video: ""
   }
 ];
 
@@ -200,17 +200,31 @@ export const PUBLICATIONS = [
 /* ---------------------------------------------------------------------------
    4. PRESENTATIONS — international conferences
    ------------------------------------------------------------------------ */
+/* "tags" is a free-text line shown under the venue — use it for the review type
+   and the contribution type, e.g. "Full paper (peer-reviewed) · Oral" or
+   "Abstract-reviewed · Hands-on demo". Separate items with " · ". Leave it out
+   and the line disappears. */
 export const PRESENTATIONS_INTL = [
   { title: { en: "Exploring Perceptual Effects of Phase Spectra in Vibrotactile Rendering" },
-    venue: { en: "IEEE/SICE International Symposium on System Integration 2026" }, year: "2026", doi: "", pdf: "", video: "" },
+    venue: { en: "IEEE/SICE International Symposium on System Integration 2026" }, year: "2026",
+    tags: { en: "Full paper (peer-reviewed) · Oral", ja: "フルペーパー査読 · 口頭発表" },
+    doi: "https://doi.org/10.1109/SII64115.2026.11404399", pdf: "", video: "" },
   { title: { en: "From Personal Vibration to Shared Perception: A Demonstration of Velcro Texture Tracing" },
-    venue: { en: "World Haptics Conference 2025" }, year: "2025", doi: "", pdf: "", video: "" },
+    venue: { en: "World Haptics Conference 2025" }, year: "2025",
+    tags: { en: "Abstract-reviewed · Hands-on demo", ja: "アブストラクト査読 · ハンズオンデモ" },
+    doi: "", pdf: "", video: "" },
   { title: { en: "Influence of Long-term Duration and Damping Shapes to Perceived Intensity for Vibrotactile Stimulation" },
-    venue: { en: "IEEE/SICE International Symposium on System Integration 2025" }, year: "2025", doi: "", pdf: "", video: "" },
+    venue: { en: "IEEE/SICE International Symposium on System Integration 2025" }, year: "2025",
+    tags: { en: "Full paper (peer-reviewed) · Oral", ja: "フルペーパー査読 · 口頭発表" },
+    doi: "https://doi.org/10.1109/SII59315.2025.10870919", pdf: "", video: "" },
   { title: { en: "Exploring Vibrotactile Intensity Perception with Multiple Waveform Parameters" },
-    venue: { en: "Asia Haptics 2024" }, year: "2024", doi: "", pdf: "", video: "" },
+    venue: { en: "Asia Haptics 2024" }, year: "2024",
+    tags: { en: "Abstract-reviewed · Hands-on demo", ja: "アブストラクト査読 · ハンズオンデモ" },
+    doi: "", arxiv: "https://arxiv.org/abs/2411.05099", pdf: "", video: "" },
   { title: { en: "Spatiotemporal Perception of Single Overlapped Vibrotactile Stimulation to Multiple Body Locations" },
-    venue: { en: "World Haptics Conference 2023" }, year: "2023", doi: "", pdf: "", video: "" }
+    venue: { en: "World Haptics Conference 2023" }, year: "2023",
+    tags: { en: "Full paper (peer-reviewed) · Oral", ja: "フルペーパー査読 · 口頭発表" },
+    doi: "https://doi.org/10.1109/WHC56415.2023.10224385", pdf: "", video: "" }
 ];
 
 
@@ -245,6 +259,9 @@ export const PRESENTATIONS_DOMESTIC = [
    6. EDUCATION
    ------------------------------------------------------------------------ */
 export const EDUCATION = [
+  { years: { en: "Jul 2026 – Present", ja: "2026年7月 – 現在" },
+    text:  { en: "Non-Degree Visiting Student (NDVS), Human Computer Integration Lab (Prof. Pedro Lopes), University of Chicago",
+             ja: "シカゴ大学 Human Computer Integration Lab（Pedro Lopes 准教授）非学位課程 客員学生（NDVS）" } },
   { years: { en: "2023 – Present", ja: "2023年 – 現在" },
     text:  { en: "Doctoral Program, Graduate School of Engineering, Nagoya Institute of Technology",
              ja: "名古屋工業大学大学院 工学研究科 博士後期課程" } },

@@ -166,6 +166,9 @@ a:hover{color:var(--color-accent-600)}
               <div style="min-width:0">
                 <p style="margin:0 0 4px;font-size:16px;line-height:1.35;font-weight:600;text-wrap:pretty">{{ p.title }}</p>
                 <p style="margin:0;font-size:14px;line-height:1.5;opacity:0.62;font-style:italic">{{ p.venue }}</p>
+                <sc-if value="{{ p.hasTags }}" hint-placeholder-val="{{ true }}">
+                  <p style="margin:6px 0 0;font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">{{ p.tags }}</p>
+                </sc-if>
                 <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
                   <sc-for list="{{ p.links }}" as="l" hint-placeholder-count="0">
                     <a href="{{ l.href }}" target="_blank" rel="noopener" style="font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} ↗</a>
@@ -311,6 +314,7 @@ class Component extends DCLogic {
   linksOf(o, ui) {
     const out = [];
     if (o.doi) out.push({ label: ui.link_doi, href: o.doi });
+    if (o.arxiv) out.push({ label: 'arXiv', href: o.arxiv });
     if (o.pdf) out.push({ label: ui.link_pdf, href: o.pdf });
     if (o.video) out.push({ label: ui.link_video, href: o.video });
     if (o.page) out.push({ label: 'Page', href: o.page });
@@ -381,7 +385,7 @@ class Component extends DCLogic {
       publications: d.PUBLICATIONS.map(p => ({
         year: p.year, title: t(p.title), authors: t(p.authors), venue: t(p.venue), links: this.linksOf(p, ui)
       })),
-      presentationsIntl: d.PRESENTATIONS_INTL.map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), links: this.linksOf(p, ui) })),
+      presentationsIntl: d.PRESENTATIONS_INTL.map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), tags: t(p.tags), hasTags: !!t(p.tags), links: this.linksOf(p, ui) })),
       presentationsDomestic: d.PRESENTATIONS_DOMESTIC.map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), links: this.linksOf(p, ui) })),
       education: d.EDUCATION.map(e => ({ years: t(e.years), text: t(e.text) })),
       recommendations: d.RECOMMENDATIONS.map(r => ({ title: t(r.title), desc: t(r.desc), url: r.url })),
