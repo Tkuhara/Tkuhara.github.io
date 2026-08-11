@@ -319,6 +319,9 @@ class Component extends DCLogic {
     if (o.video) out.push({ label: ui.link_video, href: o.video, mark: '↗' });
     if (o.page) out.push({ label: 'Page', href: o.page, mark: '↗' });
     if (o.code) out.push({ label: 'Code', href: o.code, mark: '↗' });
+    // Anything beyond one-of-each: a list of {label, href}. Second and third
+    // DOIs live here, and so does anything without a dedicated field.
+    (o.more || []).forEach(l => l && l.href && out.push({ label: l.label || 'Link', href: l.href, mark: l.mark || '↗' }));
     return out;
   }
 

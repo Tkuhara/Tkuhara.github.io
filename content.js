@@ -70,6 +70,20 @@ export const PROFILE = {
    image  : "assets/img/projects/xxx.jpg"  (leave "" for a plain placeholder)
    body   : a LIST of paragraphs. Add or remove paragraphs freely.
    links  : any of doi / pdf / video / page / code. Leave out what you don't have.
+            Need MORE than one of something (two DOIs, three PDFs)? Add a
+            "more" list. Each entry is a label and a link, and they appear as
+            buttons after the others, in the order you write them:
+
+              links: {
+                doi: "https://doi.org/10.1163/22134808-bja10157",
+                more: [
+                  { label: "DOI (WHC 2023)", href: "https://doi.org/10.1109/WHC56415.2023.10224385" },
+                  { label: "PDF (WHC 2023)", href: "assets/pdf/whc2023.pdf", mark: "⇩" }
+                ]
+              }
+
+            "mark" is the little arrow on the button. Leave it out for ↗;
+            write "⇩" for something that downloads.
    ------------------------------------------------------------------------ */
 export const PROJECTS = [
   {
@@ -79,8 +93,8 @@ export const PROJECTS = [
     title: { en: "Vibration Perceptual Mechanisms", ja: "振動知覚メカニズム" },
     kicker: { en: "Psychophysics", ja: "心理物理" },
     blurb: {
-      en: "Amplitude is not intensity. A series of studies on how duration, damping and phase spectra change how strong a vibration feels.",
-      ja: "振幅は強度ではありません。持続時間・減衰・位相スペクトルが振動の知覚強度をどう変えるのかを一連の実験で調べています。"
+      en: "Amplitude is not directly linked to intensity. A series of studies on how temporal factors such as, duration, damping and phase spectra change how strong a vibration feels.",
+      ja: "振幅は直接知覚される強度と一対一で対応しているわけではありません。持続時間・減衰・位相スペクトルといった時間的な要因が振動の知覚強度をどう変えるのかを一連の実験で調べています。"
     },
     body: [
       { en: "Designers routinely set the 'strength' of a haptic effect with a single amplitude number. Perceptually that is wrong: the same peak amplitude can feel dramatically different depending on how long the vibration lasts and how it decays.",
@@ -88,7 +102,13 @@ export const PROJECTS = [
       { en: "This ongoing series measures those effects one parameter at a time — long-term duration, damping shape, and most recently the phase spectrum of noise-like signals — with the goal of a practical perceptual intensity model that content authors can actually use.",
         ja: "本シリーズでは、長時間の持続、減衰形状、そして直近ではノイズ状信号の位相スペクトルというように、パラメータを一つずつ切り分けて測定しています。目標は、コンテンツ制作者が実際に使える知覚強度モデルです。" }
     ],
-    links: { doi: "", pdf: "", video: "" }
+    links: {
+      doi: "https://doi.org/10.1109/SII64115.2026.11404399",
+      more: [
+        { label: "DOI (SII 2025)", href: "https://doi.org/10.1109/SII59315.2025.10870919" }
+      ],
+      pdf: "", video: ""
+    }
   },
   {
     id: "pseudo-dribbling",
