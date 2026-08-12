@@ -39,8 +39,8 @@ export const PROFILE = {
   portrait: "assets/img/portrait.jpg",
 
   about: {
-    en: "I'm a doctoral student in the Graduate School of Engineering at Nagoya Institute of Technology, researching how humans perceive vibrotactile stimuli and how that perception can be used to design richer haptic experiences. My work sits at the intersection of psychophysics, human-computer interaction, and haptic engineering. Outside the lab I'm interested in sound, signal processing, and building tools that make research easier to run and share.",
-    ja: "名古屋工業大学大学院工学研究科の博士後期課程に在籍し、振動触覚刺激の知覚メカニズムと、それを応用したより豊かな触覚体験の設計について研究しています。心理物理学、ヒューマンコンピュータインタラクション、触覚工学の境界領域が専門です。研究以外では、音や信号処理、研究をより行いやすく共有しやすくするツール作りにも関心があります。"
+    en: "I'm a doctoral student in the Graduate School of Engineering at Nagoya Institute of Technology, researching how humans perceive vibrotactile stimuli and how that perception can be used to design richer haptic experiences under Prof. Tanaka's supervision. My work sits at the intersection of psychophysics, human-computer interaction, and haptic engineering. Outside the lab I'm interested in sound, signal processing, and building tools that make research easier to run and share.",
+    ja: "名古屋工業大学大学院工学研究科の博士後期課程に在籍し、振動触覚刺激の知覚メカニズムと、それを応用したより豊かな触覚体験の設計について田中由浩教授の指導のもと研究しています。心理物理学、ヒューマンコンピュータインタラクション、触覚工学の境界領域が専門です。研究以外では、音や信号処理、研究をより行いやすく共有しやすくするツール作りにも関心があります。"
   },
 
   interests: [
