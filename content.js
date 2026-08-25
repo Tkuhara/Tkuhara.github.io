@@ -114,17 +114,17 @@ export const PROJECTS = [
     id: "pseudo-dribbling",
     year: "2022–",
     image: "assets/img/projects/pseudo-dribbling.png",
-    title: { en: "SOVS — Single Overlapped Vibrotactile Stimulation", ja: "SOVS（単一重畳振動触覚刺激）" },
+    title: { en: "SOVS — Single Overlapped Vibrotactile Stimulation", ja: "SOVS（合成振動触覚刺激）" },
     kicker: { en: "Whole-body haptics", ja: "全身触覚" },
     blurb: {
-      en: "One overlapped vibration signal delivered to several body sites at once. In the pseudo-dribbling case it makes you feel a ball that isn't there — and the same principle is where the work continues.",
-      ja: "一つの重畳振動刺激を複数部位へ同時に提示する手法。擬似ドリブル体験では実在しないボールの感覚を生み、この原理を軸に研究を継続しています。"
+      en: "An overlapped vibration signal composing different information is delivered to several body sites at once. In the pseudo-dribbling case it makes you feel a ball that isn't there — and the same principle is where the work continues.",
+      ja: "複数の情報を内包した一つの振動触覚刺激を複数部位へ同時に提示する手法。これまでにこの手法を用いた擬似ドリブル体験では実在しないボールの感覚を生み出してきました。この原理を軸に研究を継続しています。"
     },
     body: [
       { en: "Most haptic systems drive each body site with its own signal. We asked a simpler question: what happens when one overlapped vibrotactile stimulus is delivered to several parts of the body at the same time?",
-        ja: "多くの触覚提示システムは部位ごとに個別の信号を用います。本研究では、一つの重畳振動触覚刺激を複数部位へ同時に提示したとき何が起こるのか、という単純な問いから出発しました。" },
-      { en: "Participants reported a coherent sense of an object travelling between hand and foot — a pseudo-dribbling experience — even though nothing in the signal encoded motion explicitly. The effect depends strongly on the relative timing and the envelope shape of the two components.",
-        ja: "刺激自体には運動情報を明示的に含めていないにもかかわらず、参加者は手と足の間を物体が移動するような一貫した感覚（擬似ドリブル体験）を報告しました。この効果は二成分の相対的なタイミングと包絡形状に強く依存します。" },
+        ja: "多くの触覚提示システムは部位ごとに個別の信号を用います。本研究では、一つの合成振動触覚刺激を複数部位へ同時に提示したとき何が起こるのか、という単純な問いから出発しました。" },
+      { en: "Participants reported a coherent sense of an object travelling between the hands and feet — a pseudo-dribbling experience — even though nothing in the signal encoded motion explicitly. The effect depends strongly on the relative timing and the envelope shape, and how easy it is to segregate the two components.",
+        ja: "刺激自体には運動情報を明示的に含めていないにもかかわらず、コンテキストのみを与える形で刺激を提示すると参加者は手と足の間を物体が移動するような一貫した感覚（擬似ドリブル体験）を報告しました。この効果は二成分の相対的なタイミングと包絡形状、および二成分への分離の容易さに強く依存します。" },
       { en: "The finding suggests a low-cost route to full-body haptic content: one actuator channel, several body sites, and perception doing the rest.",
         ja: "この知見は、単一のアクチュエータ系統と複数の提示部位、そして知覚そのものを利用した低コストな全身触覚コンテンツの可能性を示しています。" }
     ],
