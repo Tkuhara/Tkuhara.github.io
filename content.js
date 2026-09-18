@@ -291,13 +291,13 @@ export const EDUCATION = [
              ja: "シカゴ大学 Human Computer Integration Lab（Pedro Lopes 准教授）非学位課程 客員学生（NDVS）" } },
   { years: { en: "2023 – Present", ja: "2023年 – 現在" },
     text:  { en: "Doctoral Program, Graduate School of Engineering, Nagoya Institute of Technology",
-             ja: "名古屋工業大学大学院 工学研究科 博士後期課程" } },
+             ja: "名古屋工業大学大学院 工学研究科 工学専攻 博士後期課程" } },
   { years: { en: "2021 – 2023", ja: "2021年 – 2023年" },
     text:  { en: "Master's Program, Creative Engineering, Nagoya Institute of Technology",
-             ja: "名古屋工業大学大学院 創成シミュレーション工学専攻 修士課程" } },
+             ja: "名古屋工業大学大学院 創造工学プログラム専攻 修士課程" } },
   { years: { en: "2017 – 2021", ja: "2017年 – 2021年" },
-    text:  { en: "B.Eng., Materials & Energy Course, Nagoya Institute of Technology",
-             ja: "名古屋工業大学 工学部 創成シミュレーション工学課程（材料・エネルギーコース）学士" } }
+    text:  { en: "B.Eng., Creative Engineering Course, Nagoya Institute of Technology",
+             ja: "名古屋工業大学 工学部 創造工学教育課程（材料・エネルギーコース）学士" } }
 ];
 
 

@@ -56,6 +56,16 @@
    ========================================================================== */
 
 export const ENTRIES = [
+  {
+    date: "2026-09-17",       // always YYYY-MM-DD
+    lang: "en",               // "en" or "ja" — this entry's language
+    title: "Experience at UChicago",
+    body: [
+       "I am almost finishing my stay at UChicago at the Human Computer Interaction Lab, ran by Pedro. At first, I wasn't expecting myself to submitting to CHI but you never know what happens, I submitted my project that I started from early August. (Will be adding the project to website after the results come out)",
+       "I really appreciate coming here, as part of the ASPIRE program that my supervisor, Yoshihiro, gratefully added me to. I thought that our lab was fast in prototyping, but I guess that was me just being a frog in the well knowing nothing of the great ocean. I'm very grateful for Pedro for taking me in, teaching me how to write a CHI paper (since I haven't written one in my career yet), and taking the time with me to discuss some interesting ideas.",
+       "If it weren't for this experience, I probably would have looked into industry more than the academic field, but I am glad that I was able to collaborate with other international researchers from other fields."
+     ]
+  },
    {
      date: "2026-08-09",       // always YYYY-MM-DD
      lang: "en",               // "en" or "ja" — this entry's language
