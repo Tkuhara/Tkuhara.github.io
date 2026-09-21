@@ -326,7 +326,7 @@ export const RECOMMENDATIONS = [
    Leave "url" or "value" empty and the entry disappears from the site.
    ------------------------------------------------------------------------ */
 export const SOCIALS = [
-  { label: { en: "Email", ja: "メール" }, icon: "email", value: "t.kuhara12@gmail.com" },
+  { label: { en: "Email", ja: "メール" }, icon: "email", value: "t.kuhara.538@nitech.jp" },
   { label: { en: "researchmap", ja: "researchmap" }, icon: "researchmap", url: "https://researchmap.jp/Takumi-Kuhara" },
   { label: { en: "ORCID", ja: "ORCID" }, icon: "orcid", url: "https://orcid.org/0009-0002-3966-2346" },
   { label: { en: "Google Scholar", ja: "Google Scholar" }, icon: "scholar", url: "https://scholar.google.com/citations?user=07yBlb4AAAAJ" },
