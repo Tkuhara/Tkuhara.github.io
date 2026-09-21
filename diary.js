@@ -41,6 +41,19 @@
      ]
    },
 
+   PHOTOS BETWEEN PARAGRAPHS (text, photo, text, photo…)
+   Put the photo straight into `body`, in the spot where it should appear —
+   same { src, alt, caption } shape, no quotes around it:
+
+     body: [
+       "First paragraph.",
+       { src: "assets/diary/lake.jpg", alt: "Lake Michigan at dusk", caption: "Optional." },
+       "Second paragraph, under the photo.",
+       { src: "assets/diary/train.jpg", alt: "The L train" }
+     ]
+
+   `images` still works and always comes after all the text. Mix both freely.
+
    `src` is required. `caption` is optional — leave it out and no caption shows.
    `alt` is optional but please write it: it is what blind visitors hear, and
    what shows if the file path is wrong. If you omit it the caption is used.

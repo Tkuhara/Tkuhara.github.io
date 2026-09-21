@@ -371,6 +371,7 @@ ${foot(ui)}`;
 }
 
 const entriesSorted = D.ENTRIES.slice().sort((a, b) => (a.date < b.date ? 1 : -1));
+const fig = i => `<figure><img src="${esc(i.src)}" alt="${esc(i.alt || i.caption || '')}" loading="lazy">${i.caption ? `<figcaption>${esc(i.caption)}</figcaption>` : ''}</figure>`;
 function diaryBody() {
   return `<header class="pr-bar"><div><a class="pr-brand" href="./">Takumi Kuhara</a><nav><a href="./">Research portfolio</a><a href="ja.html" lang="ja" hreflang="ja">日本語</a></nav></div></header>
 <main class="pr-wrap">
@@ -382,8 +383,8 @@ function diaryBody() {
 ${entriesSorted.map(e => `<article class="pr-entry" lang="${esc(e.lang || 'en')}">
 <time datetime="${esc(e.date)}">${esc(e.date)}</time>
 <h2>${esc(e.title)}</h2>
-${(e.body || []).map(b => `<p>${esc(b)}</p>`).join('\n')}
-${(e.images || []).filter(i => i && i.src).map(i => `<figure><img src="${esc(i.src)}" alt="${esc(i.alt || i.caption || '')}" loading="lazy">${i.caption ? `<figcaption>${esc(i.caption)}</figcaption>` : ''}</figure>`).join('\n')}
+${(e.body || []).map(b => (b && typeof b === 'object') ? (b.src ? fig(b) : '') : `<p>${esc(b)}</p>`).join('\n')}
+${(e.images || []).filter(i => i && i.src).map(fig).join('\n')}
 </article>`).join('\n')}
 </main>
 <footer class="pr-foot"><div class="pr-wrap"><a href="./">Research portfolio</a></div></footer>`;
@@ -394,7 +395,11 @@ const portfolio = splitDc(PORTFOLIO_SRC);
 const diary = splitDc(DIARY_SRC);
 const out = {};
 const sitemap = [];
-const contentDate = isoDate(new Date(Math.max(mtime('content.js'), mtime(PORTFOLIO_SRC))));
+const contentStamp = new Date(Math.max(mtime('content.js'), mtime(PORTFOLIO_SRC)));
+const contentDate = isoDate(contentStamp);                                   // sitemap: date only
+// Google's structured-data checker rejects a bare date here — it wants a full
+// ISO 8601 timestamp with a timezone.
+const contentDateTime = contentStamp.toISOString().replace(/\.\d+Z$/, 'Z');
 
 for (const lang of LANGS) {
   const alternates = [
@@ -405,7 +410,7 @@ for (const lang of LANGS) {
     canonical: homeUrl(lang), alternates, image: C.PROJECTS.find(p => p.image)?.image || C.PROFILE.portrait,
     type: 'profile', stylesheet: portfolio.sheet,
     ld: [websiteLd, personLd(lang),
-      { '@type': 'ProfilePage', '@id': homeUrl(lang) + '#page', url: homeUrl(lang), name: tr(SEO.title, lang), inLanguage: lang, isPartOf: { '@id': SITE + '/#website' }, mainEntity: { '@id': PERSON_ID }, dateModified: contentDate },
+      { '@type': 'ProfilePage', '@id': homeUrl(lang) + '#page', url: homeUrl(lang), name: tr(SEO.title, lang), inLanguage: lang, isPartOf: { '@id': SITE + '/#website' }, mainEntity: { '@id': PERSON_ID }, dateModified: contentDateTime },
       ...(lang === 'en' ? C.PUBLICATIONS.map(articleLd) : [])],
     site: { lang, alt: homeFile(other(lang)), home: homeFile(lang), projectUrl: projFile('{id}', lang) },
     redirectToAlt: lang === 'en' ? homeFile('ja') : null
@@ -422,7 +427,7 @@ for (const lang of LANGS) {
       lang, title, description: clip(tr(p.blurb, lang), lang === 'ja' ? 120 : 165),
       canonical: url(lang), alternates: palt, image: p.image || C.PROFILE.portrait, type: 'article', stylesheet: portfolio.sheet,
       ld: [websiteLd, personLd(lang),
-        { '@type': 'WebPage', '@id': url(lang) + '#page', url: url(lang), name: title, inLanguage: lang, isPartOf: { '@id': SITE + '/#website' }, dateModified: contentDate,
+        { '@type': 'WebPage', '@id': url(lang) + '#page', url: url(lang), name: title, inLanguage: lang, isPartOf: { '@id': SITE + '/#website' }, dateModified: contentDateTime,
           primaryImageOfPage: p.image ? abs(p.image) : undefined,
           mainEntity: { '@type': 'ResearchProject', name: tr(p.title, lang), description: tr(p.blurb, lang), member: { '@id': PERSON_ID }, sameAs: doi.length ? doi : undefined },
           breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
@@ -442,7 +447,7 @@ out['diary.html'] = page(head({
   image: C.PROFILE.portrait, stylesheet: diary.sheet,
   ld: [websiteLd, personLd('en'), {
     '@type': 'Blog', '@id': diaryUrl + '#blog', url: diaryUrl, name: SEO.diaryTitle, author: { '@id': PERSON_ID },
-    blogPost: entriesSorted.map(e => ({ '@type': 'BlogPosting', headline: e.title, datePublished: e.date, inLanguage: e.lang || 'en', author: { '@id': PERSON_ID }, url: diaryUrl, articleBody: (e.body || []).join('\n\n') }))
+    blogPost: entriesSorted.map(e => ({ '@type': 'BlogPosting', headline: e.title, datePublished: e.date + 'T12:00:00Z', inLanguage: e.lang || 'en', author: { '@id': PERSON_ID }, url: diaryUrl, articleBody: (e.body || []).filter(b => typeof b === 'string').join('\n\n') }))
   }],
   site: { page: 'diary' }
 }), diary, diaryBody(), 'en', true);

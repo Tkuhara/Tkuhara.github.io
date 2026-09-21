@@ -58,8 +58,18 @@ a:hover{color:var(--color-accent-600)}
           </div>
           <div style="grid-column:span 2;min-width:0;border-left:2px solid var(--color-accent-300);padding-left:24px">
             <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(24px,3.4vw,34px);line-height:1.12;letter-spacing:-0.02em;margin:0 0 18px;text-wrap:pretty">{{ e.title }}</h2>
-            <sc-for list="{{ e.body }}" as="para" hint-placeholder-count="2">
-              <p style="margin:0 0 16px;font-size:17px;line-height:1.85;max-width:58ch;text-wrap:pretty">{{ para }}</p>
+            <sc-for list="{{ e.body }}" as="b" hint-placeholder-count="2">
+              <sc-if value="{{ b.isText }}" hint-placeholder-val="{{ true }}">
+                <p style="margin:0 0 16px;font-size:17px;line-height:1.85;max-width:58ch;text-wrap:pretty">{{ b.text }}</p>
+              </sc-if>
+              <sc-if value="{{ b.isImage }}" hint-placeholder-val="{{ false }}">
+                <figure style="margin:8px 0 24px;max-width:58ch">
+                  <img src="{{ b.src }}" alt="{{ b.alt }}" loading="lazy" style="display:block;width:100%;height:auto;border:1px solid var(--color-divider)">
+                  <sc-if value="{{ b.hasCaption }}" hint-placeholder-val="{{ false }}">
+                    <figcaption style="margin:10px 0 0;font-size:14px;line-height:1.6;opacity:0.6;text-wrap:pretty">{{ b.caption }}</figcaption>
+                  </sc-if>
+                </figure>
+              </sc-if>
             </sc-for>
             <sc-for list="{{ e.images }}" as="im" hint-placeholder-count="1">
               <figure style="margin:24px 0 0;max-width:58ch">
@@ -147,7 +157,11 @@ class Component extends DCLogic {
         dateLabel: this.fmt(e.date),
         langLabel: e.lang === 'ja' ? '日本語' : 'English',
         title: e.title,
-        body: e.body,
+        // A body item is either a paragraph ("text") or a photo placed right
+        // there in the flow ({ src, alt, caption }).
+        body: (e.body || []).map(x => (x && typeof x === 'object')
+          ? { isText: false, isImage: !!x.src, src: x.src || '', alt: x.alt || x.caption || '', caption: x.caption || '', hasCaption: !!x.caption }
+          : { isText: true, isImage: false, text: String(x) }),
         // Entries written before photos were supported have no `images` key.
         images: (e.images || []).map(im => ({
           src: im.src,
