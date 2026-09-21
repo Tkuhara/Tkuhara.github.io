@@ -435,3 +435,42 @@ the type scales down. Nothing to configure.
 Anything structural — a new section, a different layout, a photo gallery,
 removing a heading — is a page-file edit. Come back and describe what you
 want in plain words; that's what these page files are for.
+
+---
+
+## Appendix — How Google finds the site (you don't need to do anything)
+
+The two `.dc.html` pages draw themselves with JavaScript, which search engines
+read badly. So every time `publish.sh` runs, it also runs `build-seo.mjs`,
+which reads `content.js` and `diary.js` and writes ordinary pages that already
+contain your text, a proper title and description, and structured data
+(schema.org) telling Google who you are:
+
+| Generated file | What it is |
+| --- | --- |
+| `index.html` | English home page — `https://tkuhara.github.io/` |
+| `ja.html` | Japanese home page |
+| `project-<id>.html`, `project-<id>-ja.html` | One real page per project, per language |
+| `diary.html` | The diary |
+| `sitemap.xml`, `robots.txt` | The list of pages Google reads |
+
+**Never edit these by hand** — they are overwritten on every publish. Keep
+editing `content.js` and `diary.js` as before. Visitors see the same
+interactive site; the generated text is only what shows for a split second
+while it loads (and what Google reads).
+
+Add a project in `content.js` and its two pages and sitemap entries appear by
+themselves. To rebuild without publishing: `node build-seo.mjs`.
+
+To change the title or description Google shows, add this to the bottom of
+`content.js` (every field is optional):
+
+```js
+export const SEO = {
+  title:       { en: "…", ja: "…" },
+  description: { en: "…", ja: "…" }
+};
+```
+
+The Google Search Console verification file (`google….html`) must stay in the
+folder. Deleting it un-verifies the site.

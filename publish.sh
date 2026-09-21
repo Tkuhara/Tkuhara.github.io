@@ -40,6 +40,16 @@ for f in content.js diary.js; do
 done
 say "content.js and diary.js parse OK"
 
+# --- search-engine pages -----------------------------------------------------
+# Rebuild index.html, ja.html, project-*.html, diary.html, sitemap.xml and
+# robots.txt from the content. If this fails the old copies stay in place and
+# the publish carries on — the site still works, Google just sees yesterday.
+if "$NODE" build-seo.mjs >>"$LOG" 2>&1; then
+  say "search-engine pages rebuilt"
+else
+  say "WARN: build-seo.mjs failed (see log) — publishing with the previous SEO pages"
+fi
+
 # --- publish ---------------------------------------------------------------
 MSG="${1:-Update site content ($(date '+%Y-%m-%d'))}"
 git add -A

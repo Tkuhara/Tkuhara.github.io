@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Takumi Kuhara</title>
+<link rel="canonical" href="https://tkuhara.github.io/">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -288,12 +290,21 @@ class Component extends DCLogic {
 
   componentDidMount() {
     const browserJa = (navigator.language || '').toLowerCase().startsWith('ja');
-    const lang = localStorage.getItem('site-lang') || (browserJa ? 'ja' : 'en');
+    // window.__SITE is set by the generated pages (index.html, ja.html,
+    // project-*.html — see build-seo.mjs). Opened directly, this file has no
+    // __SITE and behaves exactly as before.
+    const S = window.__SITE || {};
+    const lang = S.lang || localStorage.getItem('site-lang') || (browserJa ? 'ja' : 'en');
     const theme = localStorage.getItem('site-theme') || 'light';
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.lang = lang;
     this.setState({ lang, theme, view: this.viewFromHash() });
-    this._onHash = () => this.setState({ view: this.viewFromHash() });
+    this._onHash = () => {
+      const h = (location.hash || '').replace('#', '');
+      // On a generated project page, a section link (#about…) means "go home".
+      if (S.view && h && !h.startsWith('project/')) { location.href = S.home + '#' + h; return; }
+      this.setState({ view: this.viewFromHash() });
+    };
     window.addEventListener('hashchange', this._onHash);
     import('./content.js').then(m => this.setState({ data: m }));
   }
@@ -302,7 +313,7 @@ class Component extends DCLogic {
 
   viewFromHash() {
     const h = (location.hash || '').replace('#', '');
-    return h.startsWith('project/') ? h.slice(8) : null;
+    return h.startsWith('project/') ? h.slice(8) : ((window.__SITE || {}).view || null);
   }
 
   t(v) {
@@ -329,6 +340,7 @@ class Component extends DCLogic {
     const d = this.state.data;
     const t = v => this.t(v);
     const ui = d ? d.UI[this.state.lang] : {};
+    const S = window.__SITE || {};
     const base = {
       ui,
       langLabel: this.state.lang === 'en' ? '日本語' : 'EN',
@@ -337,6 +349,8 @@ class Component extends DCLogic {
       toggleLang: () => {
         const next = this.state.lang === 'en' ? 'ja' : 'en';
         localStorage.setItem('site-lang', next);
+        // Generated pages have one URL per language: switch page, keep the spot.
+        if (S.alt) { location.href = S.alt + location.hash; return; }
         document.documentElement.lang = next;
         this.setState({ lang: next });
       },
@@ -346,7 +360,11 @@ class Component extends DCLogic {
         document.documentElement.setAttribute('data-theme', next);
         this.setState({ theme: next });
       },
-      goHome: (e) => { e.preventDefault(); history.replaceState(null, '', location.pathname); this.setState({ view: null }); }
+      goHome: (e) => {
+        e.preventDefault();
+        if (S.view) { location.href = S.home; return; }
+        history.replaceState(null, '', location.pathname); this.setState({ view: null });
+      }
     };
     if (!d) return Object.assign(base, { showHome: true, showProject: false });
 
@@ -371,8 +389,10 @@ class Component extends DCLogic {
       cvName: (t(d.PROFILE.cvFile) || '').split('/').pop(),
       researchmap: d.PROFILE.researchmap,
       projects: d.PROJECTS.map(p => ({
-        href: '#project/' + p.id,
-        open: (e) => { e.preventDefault(); location.hash = 'project/' + p.id; this.setState({ view: p.id }); window.scrollTo(0, 0); },
+        // Generated pages link to real, crawlable project pages; opened
+        // directly, this file keeps the old in-page #project/ view.
+        href: S.projectUrl ? S.projectUrl.replace('{id}', p.id) : '#project/' + p.id,
+        open: S.projectUrl ? (() => {}) : (e) => { e.preventDefault(); location.hash = 'project/' + p.id; this.setState({ view: p.id }); window.scrollTo(0, 0); },
         kicker: t(p.kicker), year: p.year, title: t(p.title), blurb: t(p.blurb),
         image: p.image || '', hasImage: !!p.image
       })),

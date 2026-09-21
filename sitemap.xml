@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://tkuhara.github.io/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/project-intensity-perception.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-intensity-perception.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-intensity-perception-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-intensity-perception.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/project-pseudo-dribbling.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-pseudo-dribbling.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-pseudo-dribbling-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-pseudo-dribbling.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/project-embodied-spectating.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-embodied-spectating.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-embodied-spectating-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-embodied-spectating.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/project-palpation-feedback.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-palpation-feedback.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-palpation-feedback-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-palpation-feedback.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/ja.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/project-intensity-perception-ja.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-intensity-perception.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-intensity-perception-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-intensity-perception.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/project-pseudo-dribbling-ja.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-pseudo-dribbling.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-pseudo-dribbling-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-pseudo-dribbling.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/project-embodied-spectating-ja.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-embodied-spectating.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-embodied-spectating-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-embodied-spectating.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/project-palpation-feedback-ja.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-palpation-feedback.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-palpation-feedback-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-palpation-feedback.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/diary.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <priority>0.6</priority>
+  </url>
+</urlset>
