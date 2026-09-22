@@ -358,6 +358,7 @@ export const UI = {
     diary_cta_body: "Notes on gadgets, papers and things I found interesting. Looser than this page.",
     diary_cta_button: "Open the diary",
     link_doi: "DOI", link_pdf: "PDF", link_video: "Video",
+    show_more: "Show {n} more",
     footer: "Built by Takumi Kuhara."
   },
   ja: {
@@ -377,6 +378,7 @@ export const UI = {
     diary_cta_body: "ガジェットや論文など、面白いと思ったものについてのメモ。このページより気楽に書いています。",
     diary_cta_button: "日記を開く",
     link_doi: "DOI", link_pdf: "PDF", link_video: "動画",
+    show_more: "残り{n}件を表示",
     footer: "作成: 久原拓巳"
   }
 };

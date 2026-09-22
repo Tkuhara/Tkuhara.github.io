@@ -180,6 +180,9 @@ a:hover{color:var(--color-accent-600)}
             </li>
           </sc-for>
         </ul>
+        <sc-if value="{{ intlHasMore }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ intlShowAll }}" style="margin-top:14px;background:transparent;border:2px solid var(--color-divider);padding:10px 16px;cursor:pointer;color:var(--color-text);font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ intlMoreLabel }} ↓</button>
+        </sc-if>
 
         <h3 style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:48px 0 0;padding-bottom:10px;border-bottom:2px solid var(--color-divider)">{{ ui.presentations_heading }} — {{ ui.domestic_heading }}</h3>
         <ul style="list-style:none;padding:0;margin:0">
@@ -198,6 +201,9 @@ a:hover{color:var(--color-accent-600)}
             </li>
           </sc-for>
         </ul>
+        <sc-if value="{{ domHasMore }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ domShowAll }}" style="margin-top:14px;background:transparent;border:2px solid var(--color-divider);padding:10px 16px;cursor:pointer;color:var(--color-text);font-family:var(--font-heading);font-weight:800;font-size:12px;letter-spacing:0.08em;text-transform:uppercase" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ domMoreLabel }} ↓</button>
+        </sc-if>
 
         <h3 style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:48px 0 0;padding-bottom:10px;border-bottom:2px solid var(--color-divider)">{{ ui.education_heading }}</h3>
         <ul style="list-style:none;padding:0;margin:0">
@@ -286,7 +292,9 @@ a:hover{color:var(--color-accent-600)}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { lang: 'en', theme: 'light', data: null, view: null };
+  state = { lang: 'en', theme: 'light', data: null, view: null, showIntl: false, showDom: false };
+  // Lists longer than this are cut, with a button to show the rest.
+  LIST_MAX = 10;
 
   componentDidMount() {
     const browserJa = (navigator.language || '').toLowerCase().startsWith('ja');
@@ -334,6 +342,16 @@ class Component extends DCLogic {
     // DOIs live here, and so does anything without a dedicated field.
     (o.more || []).forEach(l => l && l.href && out.push({ label: l.label || 'Link', href: l.href, mark: l.mark || '↗' }));
     return out;
+  }
+
+  cut(key, flag, total, ui) {
+    const rest = total - this.LIST_MAX;
+    const more = !this.state[flag] && rest > 0;
+    return {
+      [key + 'HasMore']: more,
+      [key + 'MoreLabel']: (ui.show_more || 'Show {n} more').replace('{n}', rest),
+      [key + 'ShowAll']: () => this.setState({ [flag]: true })
+    };
   }
 
   renderVals() {
@@ -408,8 +426,10 @@ class Component extends DCLogic {
       publications: d.PUBLICATIONS.map(p => ({
         year: p.year, title: t(p.title), authors: t(p.authors), venue: t(p.venue), links: this.linksOf(p, ui)
       })),
-      presentationsIntl: d.PRESENTATIONS_INTL.map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), tags: t(p.tags), hasTags: !!t(p.tags), links: this.linksOf(p, ui) })),
-      presentationsDomestic: d.PRESENTATIONS_DOMESTIC.map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), links: this.linksOf(p, ui) })),
+      ...this.cut('intl', 'showIntl', d.PRESENTATIONS_INTL.length, ui),
+      ...this.cut('dom', 'showDom', d.PRESENTATIONS_DOMESTIC.length, ui),
+      presentationsIntl: (this.state.showIntl ? d.PRESENTATIONS_INTL : d.PRESENTATIONS_INTL.slice(0, this.LIST_MAX)).map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), tags: t(p.tags), hasTags: !!t(p.tags), links: this.linksOf(p, ui) })),
+      presentationsDomestic: (this.state.showDom ? d.PRESENTATIONS_DOMESTIC : d.PRESENTATIONS_DOMESTIC.slice(0, this.LIST_MAX)).map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), links: this.linksOf(p, ui) })),
       education: d.EDUCATION.map(e => ({ years: t(e.years), text: t(e.text) })),
       recommendations: d.RECOMMENDATIONS.map(r => ({ title: t(r.title), desc: t(r.desc), url: r.url })),
       socials: d.SOCIALS.filter(s => s.url || s.value).map(s => ({
