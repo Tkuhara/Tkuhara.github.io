@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tkuhara.github.io/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/ja.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/"/>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://tkuhara.github.io/project-intensity-perception.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-intensity-perception.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-intensity-perception-ja.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-intensity-perception.html"/>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://tkuhara.github.io/project-pseudo-dribbling.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-pseudo-dribbling.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-pseudo-dribbling-ja.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-pseudo-dribbling.html"/>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://tkuhara.github.io/project-embodied-spectating.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-embodied-spectating.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-embodied-spectating-ja.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-embodied-spectating.html"/>
@@ -34,15 +34,175 @@
   </url>
   <url>
     <loc>https://tkuhara.github.io/project-palpation-feedback.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-palpation-feedback.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-palpation-feedback-ja.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-palpation-feedback.html"/>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://tkuhara.github.io/paper-2025-msr-pseudo-dribbling.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-msr-pseudo-dribbling.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-msr-pseudo-dribbling-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-msr-pseudo-dribbling.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2023-tvrsj-embodied-spectating.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2023-tvrsj-embodied-spectating.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2023-tvrsj-embodied-spectating-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2023-tvrsj-embodied-spectating.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2021-toh-palpation.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2021-toh-palpation.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2021-toh-palpation-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2021-toh-palpation.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2026-eurohaptics-noise-temporal.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2026-eurohaptics-noise-temporal.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2026-eurohaptics-noise-temporal-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2026-eurohaptics-noise-temporal.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2026-sii-phase-spectra.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2026-sii-phase-spectra.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2026-sii-phase-spectra-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2026-sii-phase-spectra.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-whc-velcro-demo.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-whc-velcro-demo.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-whc-velcro-demo-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-whc-velcro-demo.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-sii-duration-damping.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-sii-duration-damping.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-sii-duration-damping-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-sii-duration-damping.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2024-asiahaptics-intensity-demo.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2024-asiahaptics-intensity-demo.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2024-asiahaptics-intensity-demo-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2024-asiahaptics-intensity-demo.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2023-whc-sovs-spatiotemporal.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2023-whc-sovs-spatiotemporal.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2023-whc-sovs-spatiotemporal-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2023-whc-sovs-spatiotemporal.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2026-robomech-phase-reproducibility.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2026-robomech-phase-reproducibility.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2026-robomech-phase-reproducibility-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2026-robomech-phase-reproducibility.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-robomech-amplitude-change.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-robomech-amplitude-change.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-robomech-amplitude-change-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-robomech-amplitude-change.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-vrsj-skin-vibration-model.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-vrsj-skin-vibration-model.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-vrsj-skin-vibration-model-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-vrsj-skin-vibration-model.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-vrsj-phase-texture.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-vrsj-phase-texture.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-vrsj-phase-texture-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-vrsj-phase-texture.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2024-vrsj-decay-intensity.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2024-vrsj-decay-intensity.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2024-vrsj-decay-intensity-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2024-vrsj-decay-intensity.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2023-vrsj-sovs-velocity.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2023-vrsj-sovs-velocity.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2023-vrsj-sovs-velocity-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2023-vrsj-sovs-velocity.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2023-si-haptic-clip.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2023-si-haptic-clip.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2023-si-haptic-clip-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2023-si-haptic-clip.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2022-vrsj-visual-masking.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2022-vrsj-visual-masking.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2022-vrsj-visual-masking-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2022-vrsj-visual-masking.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2022-vrsj-sovs-basic.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2022-vrsj-sovs-basic.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2022-vrsj-sovs-basic-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2022-vrsj-sovs-basic.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2022-robomech-emotional-voice.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2022-robomech-emotional-voice.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2022-robomech-emotional-voice-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2022-robomech-emotional-voice.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2020-robomech-palpation-wireless.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2020-robomech-palpation-wireless.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2020-robomech-palpation-wireless-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2020-robomech-palpation-wireless.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://tkuhara.github.io/ja.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/ja.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/"/>
@@ -50,7 +210,7 @@
   </url>
   <url>
     <loc>https://tkuhara.github.io/project-intensity-perception-ja.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-intensity-perception.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-intensity-perception-ja.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-intensity-perception.html"/>
@@ -58,7 +218,7 @@
   </url>
   <url>
     <loc>https://tkuhara.github.io/project-pseudo-dribbling-ja.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-pseudo-dribbling.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-pseudo-dribbling-ja.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-pseudo-dribbling.html"/>
@@ -66,7 +226,7 @@
   </url>
   <url>
     <loc>https://tkuhara.github.io/project-embodied-spectating-ja.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-embodied-spectating.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-embodied-spectating-ja.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-embodied-spectating.html"/>
@@ -74,11 +234,171 @@
   </url>
   <url>
     <loc>https://tkuhara.github.io/project-palpation-feedback-ja.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/project-palpation-feedback.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/project-palpation-feedback-ja.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/project-palpation-feedback.html"/>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-msr-pseudo-dribbling-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-msr-pseudo-dribbling.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-msr-pseudo-dribbling-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-msr-pseudo-dribbling.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2023-tvrsj-embodied-spectating-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2023-tvrsj-embodied-spectating.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2023-tvrsj-embodied-spectating-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2023-tvrsj-embodied-spectating.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2021-toh-palpation-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2021-toh-palpation.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2021-toh-palpation-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2021-toh-palpation.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2026-eurohaptics-noise-temporal-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2026-eurohaptics-noise-temporal.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2026-eurohaptics-noise-temporal-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2026-eurohaptics-noise-temporal.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2026-sii-phase-spectra-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2026-sii-phase-spectra.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2026-sii-phase-spectra-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2026-sii-phase-spectra.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-whc-velcro-demo-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-whc-velcro-demo.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-whc-velcro-demo-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-whc-velcro-demo.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-sii-duration-damping-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-sii-duration-damping.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-sii-duration-damping-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-sii-duration-damping.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2024-asiahaptics-intensity-demo-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2024-asiahaptics-intensity-demo.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2024-asiahaptics-intensity-demo-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2024-asiahaptics-intensity-demo.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2023-whc-sovs-spatiotemporal-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2023-whc-sovs-spatiotemporal.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2023-whc-sovs-spatiotemporal-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2023-whc-sovs-spatiotemporal.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2026-robomech-phase-reproducibility-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2026-robomech-phase-reproducibility.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2026-robomech-phase-reproducibility-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2026-robomech-phase-reproducibility.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-robomech-amplitude-change-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-robomech-amplitude-change.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-robomech-amplitude-change-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-robomech-amplitude-change.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-vrsj-skin-vibration-model-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-vrsj-skin-vibration-model.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-vrsj-skin-vibration-model-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-vrsj-skin-vibration-model.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2025-vrsj-phase-texture-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2025-vrsj-phase-texture.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2025-vrsj-phase-texture-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2025-vrsj-phase-texture.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2024-vrsj-decay-intensity-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2024-vrsj-decay-intensity.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2024-vrsj-decay-intensity-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2024-vrsj-decay-intensity.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2023-vrsj-sovs-velocity-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2023-vrsj-sovs-velocity.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2023-vrsj-sovs-velocity-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2023-vrsj-sovs-velocity.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2023-si-haptic-clip-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2023-si-haptic-clip.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2023-si-haptic-clip-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2023-si-haptic-clip.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2022-vrsj-visual-masking-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2022-vrsj-visual-masking.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2022-vrsj-visual-masking-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2022-vrsj-visual-masking.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2022-vrsj-sovs-basic-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2022-vrsj-sovs-basic.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2022-vrsj-sovs-basic-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2022-vrsj-sovs-basic.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2022-robomech-emotional-voice-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2022-robomech-emotional-voice.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2022-robomech-emotional-voice-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2022-robomech-emotional-voice.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkuhara.github.io/paper-2020-robomech-palpation-wireless-ja.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tkuhara.github.io/paper-2020-robomech-palpation-wireless.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tkuhara.github.io/paper-2020-robomech-palpation-wireless-ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tkuhara.github.io/paper-2020-robomech-palpation-wireless.html"/>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkuhara.github.io/diary.html</loc>

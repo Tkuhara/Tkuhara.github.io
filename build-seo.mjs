@@ -73,6 +73,16 @@ const homeFile = lang => lang === 'en' ? './' : 'ja.html';
 const homeUrl = lang => lang === 'en' ? SITE + '/' : SITE + '/ja.html';
 const projFile = (id, lang) => `project-${id}${lang === 'en' ? '' : '-ja'}.html`;
 const other = lang => lang === 'en' ? 'ja' : 'en';
+const paperFile = (id, lang) => `paper-${id}${lang === 'en' ? '' : '-ja'}.html`;
+// Every paper/talk that has an id gets its own page. `kind` says which list it came from.
+const PAPERS = [
+  ...C.PUBLICATIONS.map(p => ({ ...p, kind: 'publication' })),
+  ...C.PRESENTATIONS_INTL.map(p => ({ ...p, kind: 'intl' })),
+  ...C.PRESENTATIONS_DOMESTIC.map(p => ({ ...p, kind: 'domestic' }))
+].filter(p => p.id);
+{ const seen = new Set(); for (const p of PAPERS) { if (seen.has(p.id)) throw new Error('duplicate paper id: ' + p.id); seen.add(p.id); } }
+const projectOf = p => C.PROJECTS.find(x => x.id === p.project);
+const papersOf = proj => PAPERS.filter(p => p.project === proj.id);
 
 function linksOf(o, ui) {
   const out = [];
@@ -114,7 +124,7 @@ const articleLd = p => ({
   '@type': 'ScholarlyArticle',
   headline: tr(p.title, 'en'), name: tr(p.title, 'en'),
   inLanguage: p.title.en ? 'en' : 'ja',
-  author: tr(p.authors, 'en').split(/,\s*/).map(n => /Takumi Kuhara|久原\s*拓巳/.test(n) ? { '@id': PERSON_ID } : { '@type': 'Person', name: n }),
+  author: (tr(p.authors, 'en') ? tr(p.authors, 'en').split(/,\s*/) : ['Takumi Kuhara']).map(n => /Takumi Kuhara|久原\s*拓巳/.test(n) ? { '@id': PERSON_ID } : { '@type': 'Person', name: n }),
   datePublished: String(p.year).slice(0, 4),
   isPartOf: { '@type': 'Periodical', name: tr(p.venue, 'en').replace(/,\s*\d.*$/, '') },
   sameAs: p.doi || undefined, url: p.doi || undefined
@@ -256,9 +266,19 @@ ${dc.script}
 </body>
 </html>
 `;
+// Paper pages have no interactive twin: the static HTML is the page. No React,
+// no support.js — they load in a blink and read fine without JavaScript.
+const staticPage = (headHtml, body) => `${headHtml.replace(/<script src="\.\/support\.js" defer><\/script>\n/, '')}
+<body>
+<div id="prerender">
+${body}
+</div>
+</body>
+</html>
+`;
 
 /* ---- static copies of the content ---------------------------------------- */
-function bar(lang, ui, deep) {
+function bar(lang, ui, deep, altFile) {
   const h = deep ? homeFile(lang) : '';
   return `<header class="pr-bar"><div>
 <a class="pr-brand" href="${homeFile(lang)}">${esc(tr(C.PROFILE.name, lang))}</a>
@@ -269,14 +289,14 @@ function bar(lang, ui, deep) {
 <a href="${h}#cv">${esc(ui.nav_cv)}</a>
 <a href="${h}#contact">${esc(ui.nav_contact)}</a>
 <a href="diary.html">${esc(ui.nav_diary)}</a>
-<a href="${deep ? projFile(deep, other(lang)) : homeFile(other(lang))}" hreflang="${other(lang)}" lang="${other(lang)}">${lang === 'en' ? '日本語' : 'English'}</a>
+<a href="${altFile || (deep ? projFile(deep, other(lang)) : homeFile(other(lang)))}" hreflang="${other(lang)}" lang="${other(lang)}">${lang === 'en' ? '日本語' : 'English'}</a>
 </nav></div></header>`;
 }
 const foot = ui => `<footer class="pr-foot"><div class="pr-wrap">${esc(ui.footer)}</div></footer>`;
 
 const entryList = (items, lang, ui, wide) => `<ul class="pr-list${wide ? ' pr-wide' : ''}">
 ${items.map(p => `<li><span class="pr-y">${esc(p.year)}</span><div>
-<p class="pr-t" lang="${langOf(p.title, lang)}">${esc(tr(p.title, lang))}</p>
+<p class="pr-t" lang="${langOf(p.title, lang)}">${p.id ? `<a href="${paperFile(p.id, lang)}" style="color:inherit">${esc(tr(p.title, lang))}</a>` : esc(tr(p.title, lang))}</p>
 ${p.authors ? `<p>${esc(tr(p.authors, lang))}</p>` : ''}
 ${p.venue ? `<p><i>${esc(tr(p.venue, lang))}</i></p>` : ''}
 ${p.tags && tr(p.tags, lang) ? `<p>${esc(tr(p.tags, lang))}</p>` : ''}
@@ -362,9 +382,44 @@ function projectBody(p, lang) {
 <div>
 ${p.body.map(b => `<p>${esc(t(b))}</p>`).join('\n')}
 ${linkRow(linksOf(p.links || {}, ui))}
+${papersOf(p).length ? `<h3>${esc(ui.paper_related)}</h3>
+${entryList(papersOf(p), lang, ui)}` : ''}
 <p style="margin-top:32px;font-size:14px;opacity:.7">${esc(t(C.PROFILE.name))} — ${esc(t(C.PROFILE.role))}</p>
 </div>
 ${p.image ? `<figure><img class="grayscale" src="${esc(p.image)}" alt="${esc(t(p.title))}"></figure>` : ''}
+</div>
+</article></main>
+${foot(ui)}`;
+}
+
+function paperBody(p, lang) {
+  const ui = C.UI[lang], t = v => tr(v, lang);
+  const proj = projectOf(p);
+  const abs_ = t(p.abstract);
+  const links = linksOf(p, ui).filter(l => !(p.pdf && l.href === p.pdf));
+  return `${bar(lang, ui, true, paperFile(p.id, other(lang)))}
+<main><article class="pr-wrap pr-article">
+<p><a href="${homeFile(lang)}#research">← ${esc(ui.paper_back)}</a></p>
+<p class="pr-kicker">${esc(t(p.venue))} · ${esc(p.year)}${p.tags ? ' · ' + esc(t(p.tags)) : ''}</p>
+<h1 lang="${langOf(p.title, lang)}">${esc(t(p.title))}</h1>
+${p.authors ? `<p class="pr-lead">${esc(t(p.authors))}</p>` : ''}
+<div class="pr-cols">
+<div>
+<h3 style="margin-top:0">${esc(ui.paper_abstract)}</h3>
+${abs_ ? abs_.split(/\n+/).map(x => `<p lang="${langOf(p.abstract, lang)}">${esc(x)}</p>`).join('\n') : `<p style="opacity:.6">${esc(ui.paper_no_abstract)}</p>`}
+${p.pdf ? `<p class="pr-links"><a href="${esc(p.pdf)}"${ext(p.pdf) ? ' rel="noopener"' : ' download'}>${esc(ui.paper_download)} ⇩</a></p>${p.pdfNote ? `<p style="font-size:13px;opacity:.6;margin-top:8px">${esc(t(p.pdfNote))}</p>` : ''}` : ''}
+${linkRow(links)}
+</div>
+<div>
+${proj ? `<h3 style="margin-top:0">${esc(ui.paper_project)}</h3>
+<ul class="pr-cards" style="margin-top:16px"><li>
+${proj.image ? `<a href="${projFile(proj.id, lang)}"><img class="grayscale" src="${esc(proj.image)}" alt="${esc(t(proj.title))}" loading="lazy"></a>` : ''}
+<p class="pr-k">${esc(t(proj.kicker))} · ${esc(proj.year)}</p>
+<h3><a href="${projFile(proj.id, lang)}">${esc(t(proj.title))}</a></h3>
+<p>${esc(t(proj.blurb))}</p>
+</li></ul>` : ''}
+<p style="margin-top:32px;font-size:14px;opacity:.7">${esc(t(C.PROFILE.name))} — ${esc(t(C.PROFILE.role))}</p>
+</div>
 </div>
 </article></main>
 ${foot(ui)}`;
@@ -412,7 +467,7 @@ for (const lang of LANGS) {
     ld: [websiteLd, personLd(lang),
       { '@type': 'ProfilePage', '@id': homeUrl(lang) + '#page', url: homeUrl(lang), name: tr(SEO.title, lang), inLanguage: lang, isPartOf: { '@id': SITE + '/#website' }, mainEntity: { '@id': PERSON_ID }, dateModified: contentDateTime },
       ...(lang === 'en' ? C.PUBLICATIONS.map(articleLd) : [])],
-    site: { lang, alt: homeFile(other(lang)), home: homeFile(lang), projectUrl: projFile('{id}', lang) },
+    site: { lang, alt: homeFile(other(lang)), home: homeFile(lang), projectUrl: projFile('{id}', lang), paperUrl: paperFile('{id}', lang) },
     redirectToAlt: lang === 'en' ? homeFile('ja') : null
   }), portfolio, homeBody(lang), lang);
   sitemap.push({ loc: homeUrl(lang), lastmod: contentDate, alternates, priority: '1.0' });
@@ -433,10 +488,33 @@ for (const lang of LANGS) {
           breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
             { '@type': 'ListItem', position: 1, name, item: homeUrl(lang) },
             { '@type': 'ListItem', position: 2, name: tr(p.title, lang), item: url(lang) }] } }],
-      site: { lang, view: p.id, alt: projFile(p.id, other(lang)), home: homeFile(lang), projectUrl: projFile('{id}', lang) },
+      site: { lang, view: p.id, alt: projFile(p.id, other(lang)), home: homeFile(lang), projectUrl: projFile('{id}', lang), paperUrl: paperFile('{id}', lang) },
       redirectToAlt: lang === 'en' ? projFile(p.id, 'ja') : null
     }), portfolio, projectBody(p, lang), lang);
     sitemap.push({ loc: url(lang), lastmod: contentDate, alternates: palt, priority: '0.8' });
+  }
+
+  for (const p of PAPERS) {
+    const url = l => SITE + '/' + paperFile(p.id, l);
+    const palt = [{ lang: 'en', href: url('en') }, { lang: 'ja', href: url('ja') }, { lang: 'x-default', href: url('en') }];
+    const name = tr(C.PROFILE.name, lang);
+    const title = `${tr(p.title, lang)} | ${name}`;
+    const proj = projectOf(p);
+    const desc = tr(p.abstract, lang) ? clip(tr(p.abstract, lang), lang === 'ja' ? 120 : 165) : `${tr(p.authors, lang) ? tr(p.authors, lang) + '. ' : ''}${tr(p.venue, lang)}, ${p.year}.`;
+    out[paperFile(p.id, lang)] = staticPage(head({
+      lang, title, description: desc,
+      canonical: url(lang), alternates: palt, image: proj?.image || C.PROFILE.portrait, type: 'article', stylesheet: portfolio.sheet,
+      ld: [websiteLd, personLd(lang),
+        { '@type': 'WebPage', '@id': url(lang) + '#page', url: url(lang), name: title, inLanguage: lang, isPartOf: { '@id': SITE + '/#website' }, dateModified: contentDateTime,
+          mainEntity: { ...articleLd(p), abstract: tr(p.abstract, lang) || undefined, ...(p.kind !== 'publication' ? { '@type': 'ScholarlyArticle', isPartOf: { '@type': 'Event', name: tr(p.venue, 'en') } } : {}) },
+          breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
+            { '@type': 'ListItem', position: 1, name, item: homeUrl(lang) },
+            ...(proj ? [{ '@type': 'ListItem', position: 2, name: tr(proj.title, lang), item: SITE + '/' + projFile(proj.id, lang) }] : []),
+            { '@type': 'ListItem', position: proj ? 3 : 2, name: tr(p.title, lang), item: url(lang) }] } }],
+      site: { lang, paper: p.id, alt: paperFile(p.id, other(lang)), home: homeFile(lang), projectUrl: projFile('{id}', lang), paperUrl: paperFile('{id}', lang) },
+      redirectToAlt: lang === 'en' ? paperFile(p.id, 'ja') : null
+    }), paperBody(p, lang));
+    sitemap.push({ loc: url(lang), lastmod: contentDate, alternates: palt, priority: '0.7' });
   }
 }
 

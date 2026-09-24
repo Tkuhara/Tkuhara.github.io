@@ -192,22 +192,36 @@ export const PROJECTS = [
    back to whichever one exists, so a reader in the other language sees the
    original rather than an invented translation. Add the second language only
    where a real official one exists and you want it shown. */
+/* EVERY paper and talk can also carry:
+     id       : short, unique, no spaces — becomes the URL paper-<id>.html
+     project  : the id of the PROJECT it belongs to ("" = none). The paper page
+                links to the project and the project page lists the paper.
+     abstract : { en: "...", ja: "..." }  shown on the paper page. Either
+                language alone is fine.
+     pdf      : "assets/pdf/xxx.pdf" — a Download button on the paper page.
+                Only upload a version you are allowed to post (see MANUAL.md).
+     pdfNote  : text shown under the PDF button, e.g. the IEEE copyright line
+                or "Accepted manuscript" / "著者最終稿". Leave out if not needed.
+   Papers without an id get no page and stay as plain list entries. */
 export const PUBLICATIONS = [
-  {
+  { id: "2025-msr-pseudo-dribbling", project: "pseudo-dribbling",
+  
     title: { en: "Pseudo-Dribbling Experience Using Single Overlapped Vibrotactile Stimulation Simultaneously to the Hand and the Feet" },
     authors: { en: "Takumi Kuhara, Kakagu Komazaki, Junji Watanabe, Yoshihiro Tanaka" },
     venue: { en: "Multisensory Research, 39(3–5), 379–398" },
     year: "2025",
     doi: "https://doi.org/10.1163/22134808-bja10157", pdf: "", video: ""
   },
-  {
+  { id: "2023-tvrsj-embodied-spectating", project: "embodied-spectating",
+  
     title: { ja: "第三者視点映像に対する運動模倣と複数部位への触覚提示による「なりきり体感観戦」の実現ー遠隔フェンシング観戦におけるユースケースー" },
     authors: { ja: "駒﨑掲, 久原拓巳, 田中由浩, 渡邊淳司" },
     venue: { ja: "日本バーチャルリアリティ学会論文誌, 28(2), 91–100" },
     year: "2023",
     doi: "https://doi.org/10.18974/tvrsj.28.2_91", pdf: "https://www.jstage.jst.go.jp/article/tvrsj/28/2/28_91/_pdf", video: ""
   },
-  {
+  { id: "2021-toh-palpation", project: "palpation-feedback",
+  
     title: { en: "Vibrotactile Feedback System From the Fingertip to the Temples for Perceptual Enhancement of Contracture Palpation" },
     authors: { en: "Kazuhiro Niwa, Yoshihiro Tanaka, Kota Kitamichi, Takumi Kuhara, Kimihiro Uemura, Takafumi Saito" },
     venue: { en: "IEEE Transactions on Haptics, 14(2), 285–290" },
@@ -225,27 +239,33 @@ export const PUBLICATIONS = [
    "Abstract-reviewed · Hands-on demo". Separate items with " · ". Leave it out
    and the line disappears. */
 export const PRESENTATIONS_INTL = [
-  { title: { en: "Influence of Background Noise on the Temporal Perception of Vibrotactile Stimuli" },
+  { id: "2026-eurohaptics-noise-temporal", project: "intensity-perception",
+   title: { en: "Influence of Background Noise on the Temporal Perception of Vibrotactile Stimuli" },
     venue: { en: "EuroHaptics 2026" }, year: "2026",
     tags: { en: "Abstract-reviewed · Work-in-progress · Poster", ja: "アブストラクト査読 · WIP（進行中研究） · ポスター発表" },
     doi: "", pdf: "", video: "" },
-  { title: { en: "Exploring Perceptual Effects of Phase Spectra in Vibrotactile Rendering" },
+  { id: "2026-sii-phase-spectra", project: "intensity-perception",
+   title: { en: "Exploring Perceptual Effects of Phase Spectra in Vibrotactile Rendering" },
     venue: { en: "IEEE/SICE International Symposium on System Integration 2026" }, year: "2026",
     tags: { en: "Full paper (peer-reviewed) · Oral", ja: "フルペーパー査読 · 口頭発表" },
     doi: "https://doi.org/10.1109/SII64115.2026.11404399", pdf: "", video: "" },
-  { title: { en: "From Personal Vibration to Shared Perception: A Demonstration of Velcro Texture Tracing" },
+  { id: "2025-whc-velcro-demo", project: "",
+   title: { en: "From Personal Vibration to Shared Perception: A Demonstration of Velcro Texture Tracing" },
     venue: { en: "World Haptics Conference 2025 (Hands-on Demo D1-22)", ja: "World Haptics Conference 2025（ハンズオンデモ D1-22）" }, year: "2025",
     tags: { en: "Abstract-reviewed · Hands-on demo", ja: "アブストラクト査読 · ハンズオンデモ" },
     doi: "", pdf: "https://di0zxmb8pwajl.cloudfront.net/khc/conference/whc/abs2/D1-22.pdf", video: "" },
-  { title: { en: "Influence of Long-term Duration and Damping Shapes to Perceived Intensity for Vibrotactile Stimulation" },
+  { id: "2025-sii-duration-damping", project: "intensity-perception",
+   title: { en: "Influence of Long-term Duration and Damping Shapes to Perceived Intensity for Vibrotactile Stimulation" },
     venue: { en: "IEEE/SICE International Symposium on System Integration 2025" }, year: "2025",
     tags: { en: "Full paper (peer-reviewed) · Oral", ja: "フルペーパー査読 · 口頭発表" },
     doi: "https://doi.org/10.1109/SII59315.2025.10870919", pdf: "", video: "" },
-  { title: { en: "Exploring Vibrotactile Intensity Perception with Multiple Waveform Parameters" },
+  { id: "2024-asiahaptics-intensity-demo", project: "intensity-perception",
+   title: { en: "Exploring Vibrotactile Intensity Perception with Multiple Waveform Parameters" },
     venue: { en: "Asia Haptics 2024" }, year: "2024",
     tags: { en: "Abstract-reviewed · Hands-on demo", ja: "アブストラクト査読 · ハンズオンデモ" },
     doi: "", arxiv: "https://arxiv.org/abs/2411.05099", pdf: "https://arxiv.org/pdf/2411.05099", video: "" },
-  { title: { en: "Spatiotemporal Perception of Single Overlapped Vibrotactile Stimulation to Multiple Body Locations" },
+  { id: "2023-whc-sovs-spatiotemporal", project: "pseudo-dribbling",
+   title: { en: "Spatiotemporal Perception of Single Overlapped Vibrotactile Stimulation to Multiple Body Locations" },
     venue: { en: "World Haptics Conference 2023" }, year: "2023",
     tags: { en: "Full paper (peer-reviewed) · Oral", ja: "フルペーパー査読 · 口頭発表" },
     doi: "https://doi.org/10.1109/WHC56415.2023.10224385", pdf: "", video: "" }
@@ -256,28 +276,39 @@ export const PRESENTATIONS_INTL = [
    5. PRESENTATIONS — domestic conferences (Japan)
    ------------------------------------------------------------------------ */
 export const PRESENTATIONS_DOMESTIC = [
-  { title: { ja: "テクスチャなぞり時の皮膚振動における位相スペクトルの再現性に関する基礎研究",
+  { id: "2026-robomech-phase-reproducibility", project: "",
+   title: { ja: "テクスチャなぞり時の皮膚振動における位相スペクトルの再現性に関する基礎研究",
              en: "Basic Study on Reproducibility of Phase Spectra of Skin Vibrations among Exploration of Textures" },
     venue: { ja: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集" }, year: "2026", doi: "", pdf: "" },
-  { title: { ja: "振動触覚刺激における振幅変化知覚に関与するパラメータの検討" },
+  { id: "2025-robomech-amplitude-change", project: "intensity-perception",
+   title: { ja: "振動触覚刺激における振幅変化知覚に関与するパラメータの検討" },
     venue: { ja: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集" }, year: "2025", doi: "", pdf: "" },
-  { title: { ja: "ウェアラブル触覚センサにおける2自由度系皮膚振動モデル" },
+  { id: "2025-vrsj-skin-vibration-model", project: "",
+   title: { ja: "ウェアラブル触覚センサにおける2自由度系皮膚振動モデル" },
     venue: { ja: "日本バーチャルリアリティ学会大会論文集, 第30回" }, year: "2025", doi: "", pdf: "" },
-  { title: { ja: "ノイズの位相変調とテクスチャ感との関係" },
+  { id: "2025-vrsj-phase-texture", project: "",
+   title: { ja: "ノイズの位相変調とテクスチャ感との関係" },
     venue: { ja: "日本バーチャルリアリティ学会大会論文集, 第30回" }, year: "2025", doi: "", pdf: "" },
-  { title: { ja: "振動刺激の減衰時間が強度知覚へ与える影響" },
+  { id: "2024-vrsj-decay-intensity", project: "intensity-perception",
+   title: { ja: "振動刺激の減衰時間が強度知覚へ与える影響" },
     venue: { ja: "日本バーチャルリアリティ学会大会論文集, 第29回" }, year: "2024", doi: "", pdf: "" },
-  { title: { ja: "手足に対する合成振動触覚刺激提示による運動物体の速度知覚に関する検討" },
+  { id: "2023-vrsj-sovs-velocity", project: "pseudo-dribbling",
+   title: { ja: "手足に対する合成振動触覚刺激提示による運動物体の速度知覚に関する検討" },
     venue: { ja: "日本バーチャルリアリティ学会大会論文集, 第28回" }, year: "2023", doi: "", pdf: "" },
-  { title: { ja: "触覚クリップ：柔らかさ知覚バイアスを生起する足裏周囲への圧迫刺激" },
+  { id: "2023-si-haptic-clip", project: "",
+   title: { ja: "触覚クリップ：柔らかさ知覚バイアスを生起する足裏周囲への圧迫刺激" },
     venue: { ja: "計測自動制御学会システムインテグレーション部門講演会, 第24回" }, year: "2023", doi: "", pdf: "" },
-  { title: { ja: "視覚による触覚刺激のマスキングに関する研究" },
+  { id: "2022-vrsj-visual-masking", project: "",
+   title: { ja: "視覚による触覚刺激のマスキングに関する研究" },
     venue: { ja: "日本バーチャルリアリティ学会研究報告, 27(HAP02)" }, year: "2022", doi: "", pdf: "" },
-  { title: { ja: "合成振動触覚刺激に対する知覚現象の基礎検討" },
+  { id: "2022-vrsj-sovs-basic", project: "pseudo-dribbling",
+   title: { ja: "合成振動触覚刺激に対する知覚現象の基礎検討" },
     venue: { ja: "日本バーチャルリアリティ学会大会論文集, 第27回" }, year: "2022", doi: "", pdf: "" },
-  { title: { ja: "感情付き合成音声を伴う振動触覚刺激の心理的影響の調査" },
+  { id: "2022-robomech-emotional-voice", project: "",
+   title: { ja: "感情付き合成音声を伴う振動触覚刺激の心理的影響の調査" },
     venue: { ja: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集" }, year: "2022", doi: "", pdf: "" },
-  { title: { ja: "拘縮の触診をサポートする無線触覚共有システム" },
+  { id: "2020-robomech-palpation-wireless", project: "palpation-feedback",
+   title: { ja: "拘縮の触診をサポートする無線触覚共有システム" },
     venue: { ja: "日本機械学会ロボティクス・メカトロニクス講演会講演論文集" }, year: "2020", doi: "", pdf: "" }
 ];
 
@@ -359,6 +390,8 @@ export const UI = {
     diary_cta_button: "Open the diary",
     link_doi: "DOI", link_pdf: "PDF", link_video: "Video",
     show_more: "Show {n} more",
+    paper_details: "Details", paper_abstract: "Abstract", paper_project: "Part of the project", paper_related: "Related papers & talks",
+    paper_no_abstract: "Abstract to be added.", paper_download: "Download PDF", paper_back: "All research",
     footer: "Built by Takumi Kuhara."
   },
   ja: {
@@ -379,6 +412,8 @@ export const UI = {
     diary_cta_button: "日記を開く",
     link_doi: "DOI", link_pdf: "PDF", link_video: "動画",
     show_more: "残り{n}件を表示",
+    paper_details: "詳細", paper_abstract: "概要", paper_project: "関連プロジェクト", paper_related: "関連する論文・発表",
+    paper_no_abstract: "概要は準備中です。", paper_download: "PDFをダウンロード", paper_back: "研究一覧へ",
     footer: "作成: 久原拓巳"
   }
 };

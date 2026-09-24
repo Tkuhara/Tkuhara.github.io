@@ -474,3 +474,37 @@ export const SEO = {
 
 The Google Search Console verification file (`google….html`) must stay in the
 folder. Deleting it un-verifies the site.
+
+---
+
+## Appendix — Paper pages, abstracts and PDFs
+
+Every entry in `PUBLICATIONS`, `PRESENTATIONS_INTL` and `PRESENTATIONS_DOMESTIC`
+that has an `id` gets its own page, `paper-<id>.html` (and `paper-<id>-ja.html`),
+generated on publish. Its title in the list becomes a link. Fields:
+
+```js
+  { id: "2025-sii-duration-damping",     // unique, becomes the URL
+    project: "intensity-perception",     // a PROJECTS id, or "" for none
+    abstract: { en: "…", ja: "…" },      // shown on the page (either language is fine)
+    pdf: "assets/pdf/sii2025-accepted.pdf",   // optional download button
+    pdfNote: "Accepted manuscript. © 2025 IEEE. Personal use of this material is permitted. …",
+    title: …, venue: …, year: …, doi: … },
+```
+
+`project` links both ways: the paper page shows the project card, and the
+project page lists every paper that points at it.
+
+### What you may upload as `pdf`
+
+| Where it appeared | What you can post on this site | Note to put in `pdfNote` |
+| --- | --- | --- |
+| IEEE (SII, WHC, ToH) | **Accepted manuscript only** — your final Word/LaTeX PDF *before* IEEE typesetting. Never the IEEE Xplore PDF. | The IEEE line: "© 20XX IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained for all other uses, in any current or future media, including reprinting/republishing this material for advertising or promotional purposes, creating new collective works, for resale or redistribution to servers or lists, or reuse of any copyrighted component of this work in other works." |
+| JSME (ROBOMECH, IIP) | Your own paper, either version — JSME's copyright rules let authors reuse their own work without asking. | "日本機械学会 …講演論文集 (20XX) より. © 日本機械学会" |
+| VRSJ 大会論文集 / 研究報告 (触覚研究会) | Not confirmed in writing. Ask office@vrsj.org once; until then link to the VRSJ archive instead of hosting the PDF. | — |
+| J-STAGE open-access papers (TVRSJ) | Already free — link the DOI/J-STAGE PDF; no need to host a copy. | — |
+| arXiv / EuroHaptics WIP / demo abstracts | Link the public PDF. | — |
+
+Keep the file name short and lowercase, e.g. `assets/pdf/sii2025-accepted.pdf`.
+Note that `assets/pdf/` is in `.gitignore` — remove that line (or add the file
+with `git add -f`) or the PDF will never be published.

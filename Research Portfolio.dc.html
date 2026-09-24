@@ -62,6 +62,20 @@ a:hover{color:var(--color-accent-600)}
               <a href="{{ l.href }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 16px;border:2px solid var(--color-divider);color:var(--color-text);text-decoration:none" style-hover="border-color:var(--color-accent);color:var(--color-accent)">{{ l.label }} {{ l.mark }}</a>
             </sc-for>
           </div>
+          <sc-if value="{{ project.hasPapers }}" hint-placeholder-val="{{ false }}">
+            <h3 style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin:28px 0 0;padding-bottom:10px;border-bottom:2px solid var(--color-divider)">{{ ui.paper_related }}</h3>
+            <ul style="list-style:none;padding:0;margin:0">
+              <sc-for list="{{ project.papers }}" as="p" hint-placeholder-count="2">
+                <li style="display:grid;grid-template-columns:56px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--color-divider);align-items:start">
+                  <span style="font-family:var(--font-heading);font-weight:800;font-size:14px;opacity:0.55">{{ p.year }}</span>
+                  <div style="min-width:0">
+                    <p style="margin:0 0 3px;font-size:15px;line-height:1.35;font-weight:600;text-wrap:pretty"><sc-if value="{{ p.hasPage }}" hint-placeholder-val="{{ false }}"><a href="{{ p.href }}" style="color:var(--color-text);text-decoration:none" style-hover="color:var(--color-accent);text-decoration:underline">{{ p.title }}</a></sc-if><sc-if value="{{ p.noPage }}" hint-placeholder-val="{{ true }}">{{ p.title }}</sc-if></p>
+                    <p style="margin:0;font-size:13px;line-height:1.5;opacity:0.62;font-style:italic">{{ p.venue }}</p>
+                  </div>
+                </li>
+              </sc-for>
+            </ul>
+          </sc-if>
         </div>
         <figure style="margin:0">
           <sc-if value="{{ project.hasImage }}" hint-placeholder-val="{{ false }}">
@@ -147,7 +161,7 @@ a:hover{color:var(--color-accent-600)}
             <li style="display:grid;grid-template-columns:72px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--color-divider);align-items:start">
               <span style="font-family:var(--font-heading);font-weight:800;font-size:15px;opacity:0.55">{{ p.year }}</span>
               <div style="min-width:0">
-                <p style="margin:0 0 6px;font-size:17px;line-height:1.35;font-weight:600;text-wrap:pretty">{{ p.title }}</p>
+                <p style="margin:0 0 6px;font-size:17px;line-height:1.35;font-weight:600;text-wrap:pretty"><sc-if value="{{ p.hasPage }}" hint-placeholder-val="{{ false }}"><a href="{{ p.href }}" style="color:var(--color-text);text-decoration:none" style-hover="color:var(--color-accent);text-decoration:underline">{{ p.title }}</a></sc-if><sc-if value="{{ p.noPage }}" hint-placeholder-val="{{ true }}">{{ p.title }}</sc-if></p>
                 <p style="margin:0;font-size:14px;line-height:1.5;opacity:0.62">{{ p.authors }}</p>
                 <p style="margin:2px 0 0;font-size:14px;line-height:1.5;opacity:0.62;font-style:italic">{{ p.venue }}</p>
                 <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
@@ -166,7 +180,7 @@ a:hover{color:var(--color-accent-600)}
             <li style="display:grid;grid-template-columns:72px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--color-divider);align-items:start">
               <span style="font-family:var(--font-heading);font-weight:800;font-size:15px;opacity:0.55">{{ p.year }}</span>
               <div style="min-width:0">
-                <p style="margin:0 0 4px;font-size:16px;line-height:1.35;font-weight:600;text-wrap:pretty">{{ p.title }}</p>
+                <p style="margin:0 0 4px;font-size:16px;line-height:1.35;font-weight:600;text-wrap:pretty"><sc-if value="{{ p.hasPage }}" hint-placeholder-val="{{ false }}"><a href="{{ p.href }}" style="color:var(--color-text);text-decoration:none" style-hover="color:var(--color-accent);text-decoration:underline">{{ p.title }}</a></sc-if><sc-if value="{{ p.noPage }}" hint-placeholder-val="{{ true }}">{{ p.title }}</sc-if></p>
                 <p style="margin:0;font-size:14px;line-height:1.5;opacity:0.62;font-style:italic">{{ p.venue }}</p>
                 <sc-if value="{{ p.hasTags }}" hint-placeholder-val="{{ true }}">
                   <p style="margin:6px 0 0;font-family:var(--font-heading);font-weight:800;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent)">{{ p.tags }}</p>
@@ -190,7 +204,7 @@ a:hover{color:var(--color-accent-600)}
             <li style="display:grid;grid-template-columns:72px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--color-divider);align-items:start">
               <span style="font-family:var(--font-heading);font-weight:800;font-size:15px;opacity:0.55">{{ p.year }}</span>
               <div style="min-width:0">
-                <p style="margin:0 0 4px;font-size:16px;line-height:1.35;font-weight:600;text-wrap:pretty">{{ p.title }}</p>
+                <p style="margin:0 0 4px;font-size:16px;line-height:1.35;font-weight:600;text-wrap:pretty"><sc-if value="{{ p.hasPage }}" hint-placeholder-val="{{ false }}"><a href="{{ p.href }}" style="color:var(--color-text);text-decoration:none" style-hover="color:var(--color-accent);text-decoration:underline">{{ p.title }}</a></sc-if><sc-if value="{{ p.noPage }}" hint-placeholder-val="{{ true }}">{{ p.title }}</sc-if></p>
                 <p style="margin:0;font-size:14px;line-height:1.5;opacity:0.62;font-style:italic">{{ p.venue }}</p>
                 <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
                   <sc-for list="{{ p.links }}" as="l" hint-placeholder-count="0">
@@ -344,6 +358,17 @@ class Component extends DCLogic {
     return out;
   }
 
+  // Papers with an id have their own page (paper-<id>.html), but only the
+  // generated pages know the URL pattern; opened directly, titles stay plain.
+  pageOf(p) {
+    const S = window.__SITE || {};
+    const has = !!(p.id && S.paperUrl);
+    return { hasPage: has, noPage: !has, href: has ? S.paperUrl.replace('{id}', p.id) : '' };
+  }
+  papersOf(d, id) {
+    return [...d.PUBLICATIONS, ...d.PRESENTATIONS_INTL, ...d.PRESENTATIONS_DOMESTIC].filter(p => p.project === id);
+  }
+
   cut(key, flag, total, ui) {
     const rest = total - this.LIST_MAX;
     const more = !this.state[flag] && rest > 0;
@@ -421,15 +446,17 @@ class Component extends DCLogic {
         image: current.image || '',
         hasImage: !!current.image,
         noImage: !current.image,
-        imageNote: current.image ? '' : 'Figure'
-      } : { body: [], links: [], noImage: true, imageNote: 'Figure' },
+        imageNote: current.image ? '' : 'Figure',
+        papers: this.papersOf(d, current.id).map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), ...this.pageOf(p) })),
+        hasPapers: this.papersOf(d, current.id).length > 0
+      } : { body: [], links: [], papers: [], noImage: true, imageNote: 'Figure' },
       publications: d.PUBLICATIONS.map(p => ({
-        year: p.year, title: t(p.title), authors: t(p.authors), venue: t(p.venue), links: this.linksOf(p, ui)
+        year: p.year, title: t(p.title), authors: t(p.authors), venue: t(p.venue), links: this.linksOf(p, ui), ...this.pageOf(p)
       })),
       ...this.cut('intl', 'showIntl', d.PRESENTATIONS_INTL.length, ui),
       ...this.cut('dom', 'showDom', d.PRESENTATIONS_DOMESTIC.length, ui),
-      presentationsIntl: (this.state.showIntl ? d.PRESENTATIONS_INTL : d.PRESENTATIONS_INTL.slice(0, this.LIST_MAX)).map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), tags: t(p.tags), hasTags: !!t(p.tags), links: this.linksOf(p, ui) })),
-      presentationsDomestic: (this.state.showDom ? d.PRESENTATIONS_DOMESTIC : d.PRESENTATIONS_DOMESTIC.slice(0, this.LIST_MAX)).map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), links: this.linksOf(p, ui) })),
+      presentationsIntl: (this.state.showIntl ? d.PRESENTATIONS_INTL : d.PRESENTATIONS_INTL.slice(0, this.LIST_MAX)).map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), tags: t(p.tags), hasTags: !!t(p.tags), links: this.linksOf(p, ui), ...this.pageOf(p) })),
+      presentationsDomestic: (this.state.showDom ? d.PRESENTATIONS_DOMESTIC : d.PRESENTATIONS_DOMESTIC.slice(0, this.LIST_MAX)).map(p => ({ year: p.year, title: t(p.title), venue: t(p.venue), links: this.linksOf(p, ui), ...this.pageOf(p) })),
       education: d.EDUCATION.map(e => ({ years: t(e.years), text: t(e.text) })),
       recommendations: d.RECOMMENDATIONS.map(r => ({ title: t(r.title), desc: t(r.desc), url: r.url })),
       socials: d.SOCIALS.filter(s => s.url || s.value).map(s => ({
